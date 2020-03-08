@@ -95,7 +95,7 @@ public class Main {
                 "Algorithm. Word used by programmers when they don't want to explain what they did.");
 
         Joke funnyJokeTwo = new Joke("Joker", "asd@gmail.com",
-                "John", "Wick", "0899999992",
+                "John", "Wick", "0899999995",
                 "b1b2c3",
                 "How does NASA organise a party? They planet.");
 
