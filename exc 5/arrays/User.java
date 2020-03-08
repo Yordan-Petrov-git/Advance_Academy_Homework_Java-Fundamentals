@@ -28,7 +28,7 @@ public class User {
         if (firstName.length() != 0) {
             this.firstName = firstName;
         } else {
-            throw new IllegalArgumentException("Моля въведете валидно име");
+            throw new IllegalArgumentException("Моля въведете валидно име!");
         }
     }
 
@@ -40,7 +40,7 @@ public class User {
         if (familyName.length() != 0) {
             this.familyName = familyName;
         } else {
-            throw new IllegalArgumentException("Моля въведете валидно фамилно име");
+            throw new IllegalArgumentException("Моля въведете валидно фамилно име!");
         }
     }
 
@@ -52,7 +52,7 @@ public class User {
         if (phoneNumber.length() == 10) {
             this.phoneNumber = phoneNumber;
         } else {
-            throw new IllegalArgumentException("Моля въведете валиден телефонен номер");
+            throw new IllegalArgumentException("Моля въведете валиден телефонен номер!");
         }
 
     }
@@ -65,7 +65,7 @@ public class User {
         if (email.length() != 0) {
             this.email = email;
         } else {
-            throw new IllegalArgumentException("Моля въведете валиден имейл");
+            throw new IllegalArgumentException("Моля въведете валиден имейл!");
         }
 
     }
@@ -78,7 +78,7 @@ public class User {
         if (homeAddress.length() != 0) {
             this.homeAddress = homeAddress;
         } else {
-            throw new IllegalArgumentException("Моля въведете валиден домашен адрес");
+            throw new IllegalArgumentException("Моля въведете валиден домашен адрес!");
         }
 
     }
