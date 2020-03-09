@@ -62,6 +62,8 @@ public class Main {
                     System.out.printf("%nPlease enter grade number : %d %n", j + 1);
                     gradesStudents.add(Double.parseDouble(reader.readLine()));
                 }
+                bubbleSortingAlgorithm(gradesStudents);
+                System.out.println("Sorted "+gradesStudents.toString());
             }
             if (numberOfEnteredGrades < 5) {
                 System.out.println("Pleases enter 5 or moore grades!");//fix it
@@ -76,6 +78,24 @@ public class Main {
         String searchInput = reader.readLine();
         findStudentByNumber(searchInput);
 
+    }
+    static void bubbleSortingAlgorithm(ArrayList<Double> arrayToSort) {
+        //Метод с който се сортира масив от интове
+        double tempForSwap;//Временна променлива за запазване на
+        boolean isNumbersSwapped = false;//променлива за
+        double arrayLength = arrayToSort.size();//Вземаме дължината на масива в променливата от тип инт
+        for (int i = 0; i < arrayLength - 1; i++) {//обхождаме даденият масив елемент по елемент
+            for (int j = 0; j < arrayLength - i - 1; j++) {
+                if (arrayToSort.get(j) > arrayToSort.get(j + 1)) {
+                    tempForSwap = arrayToSort.get(j);
+                    arrayToSort.set(j, arrayToSort.get(j + 1));
+                    arrayToSort.set(j + 1, tempForSwap);
+                    isNumbersSwapped = true;
+                }
+            }
+            if (!isNumbersSwapped)
+                break;
+        }
     }
 
     public static void findStudentByNumber(String studentNumber) {
@@ -96,30 +116,11 @@ public class Main {
         }
     }
 
-
-    static void bubbleSortingAlgorithm(int[] arrayToSort) {
-        //Метод с който се сортира масив от интове
-        int tempForSwap;//Временна променлива за запазване на
-        boolean isNumbersSwapped = false;//променлива за
-        int arrayLength = arrayToSort.length;//Вземаме дължината на масива в променливата от тип инт
-        for (int i = 0; i < arrayLength - 1; i++) {//обхождаме даденият масив елемент по елемент
-            for (int j = 0; j < arrayLength - i - 1; j++) {
-                if (arrayToSort[j] > arrayToSort[j + 1]) {
-                    tempForSwap = arrayToSort[j];
-                    arrayToSort[j] = arrayToSort[j + 1];
-                    arrayToSort[j + 1] = tempForSwap;
-                    isNumbersSwapped = true;
-                }
-            }
-            if (!isNumbersSwapped)
-                break;
-        }
-    }
-
     static void printArray(int[] array) {
         //Метод за принтиране на масив от интове
         int arrayLength = array.length;//Вземаме дължината на масива в променливата от тип инт
         //Вземаме и принтираме всеки елемент от масива последователно
         for (int value : array) System.out.print(value + " ");
     }
+
 }
