@@ -78,6 +78,11 @@ public class Main {
         String searchInput = reader.readLine();
         findStudentByNumber(searchInput);
 
+        //=======================
+
+        int n = 3;
+        System.out.print(PalindromeNumber.larrgestPalindrome(n));
+
     }
     static void bubbleSortingAlgorithm(ArrayList<Double> arrayToSort) {
         //Метод с който се сортира масив от интове
