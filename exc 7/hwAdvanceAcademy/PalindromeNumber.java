@@ -1,57 +1,36 @@
 package hwAdvanceAcademy;
 
 public class PalindromeNumber {
-    // Function to calculate largest
-    // palindrome which isproduct of
-    // two n-digits numbers
-    static int larrgestPalindrome(int n)
+
+    static int larrgestPalindrome(int numbers)
+    //Изчисляваме най-големният палиндорм от умножението на н брой числа
+    //Задача 4
     {
-        int upper_limit = 0;
-
-        // Loop to calculate upper bound
-        // (largest number    of n-digit)
-        for (int i=1; i<=n; i++)
-        {
-            upper_limit *= 10;
-            upper_limit += 9;
+        int upperLimit = 0;//Горен лимит за най- голямото число от н
+        for (int i = 1; i <= numbers; i++) {
+            upperLimit *= 10;
+            upperLimit += 9;
         }
-
-        // largest number of n-1 digit.
-        // One plus this number
-        // is lower limit which is
-        // product of two numbers.
-        int lower_limit = 1 + upper_limit / 10;
-
-        // Initialize result
-        int max_product = 0;
-
-        for (int i = upper_limit; i >= lower_limit; i--)
-        {
-            for (int j = i; j >= lower_limit; j--)
-            {
-                // calculating product of two
-                // n-digit numbers
+        int lowerLimit = 1 + upperLimit / 10;
+        // Инициализираме резултата
+        int maxProduct = 0;
+        for (int i = upperLimit; i >= lowerLimit; i--) {
+            for (int j = i; j >= lowerLimit; j--) {
                 int product = i * j;
-                if (product < max_product)
+                if (product < maxProduct)
                     break;
                 int number = product;
                 int reverse = 0;
-
-                // calculating reverse of product
-                // to check whether it is
-                // palindrome or not
-                while (number != 0)
-                {
+                //Проверява дали е палиндом
+                while (number != 0) {
                     reverse = reverse * 10 + number % 10;
                     number /= 10;
                 }
-
-                // update new product if exist and if
-                // greater than previous one
-                if (product == reverse && product > max_product)
-                    max_product = product;
+                //Ъпдейт
+                if (product == reverse && product > maxProduct)
+                    maxProduct = product;
             }
         }
-        return max_product;
+        return maxProduct;
     }
 }
