@@ -17,24 +17,24 @@ public class Main {
     public static void main(String[] args) throws IOException {
         //========================================================================================================
         //Задача 1
-       // arrayOfFiveElements();
+        arrayOfFiveElements();//Създаваме масив от 5 елемтна и принтираме средно аритметичното от числата
         //========================================================================================================
-        //     Задача 2
-        addingStudents();
+        //Задача 2 и 3
+        addingStudents(); // Добавяме ученици и сортираме оценки
+        searchStudentById();    //Търсим ученик по номер
         //========================================================================================================
-        //Търсим ученик по номер
-        searchStudentById();
-        //========================================================================================================
-        //     Задача 4
-        largestPalindromeNumber();
+        //Задача 4 Най-голям палиндром
+        printLargestPalindromeNumber();
         //========================================================================================================
     }
 
-    private static void largestPalindromeNumber() {
-        System.out.print("Biggest palindrome number is :" + PalindromeNumber.larrgestPalindrome(3));
+    private static void printLargestPalindromeNumber() {
+        //Палиндором мерод за принтиране
+        System.out.print("Biggest palindrome number product of three digit numbers is :" + PalindromeNumber.larrgestPalindrome(3));
     }
 
     private static void searchStudentById() throws IOException {
+        //Tърсене на ученици по ид номер
         System.out.println("Please enter student number");
         String searchInput = reader.readLine();//Променлива за номера на ученика
         findStudentByNumber(searchInput);//Викаме метод за търсене на ученик по номер
@@ -42,12 +42,15 @@ public class Main {
 
     private static void arrayOfFiveElements() throws IOException {
         //Задача 1
+        //Декларираме и инициализираме нов масив от дабъли с 5 елемента
         double[] arrayFiveNumbers = new double[5];
         System.out.println("Добвете елемтнти");
+        //Итерираме през масива и добавяме 5 елемента
         for (int i = 0; i < arrayFiveNumbers.length; i++) {
             arrayFiveNumbers[i] = Double.parseDouble(reader.readLine());
         }
-        double sumForAvg = 0;//Съдържа сумата на чилата в масива
+        //Съдържа сумата на чилата в масива
+        double sumForAvg = 0;
         try {
             //Минава през дължината през масива + 1 за да хвърли грешка !!!
             for (int i = 0; i < arrayFiveNumbers.length + 1; i++) {
@@ -62,42 +65,94 @@ public class Main {
     }
 
     private static void addingStudents() throws IOException {
-        //---Избираме броя на учениците които искаме да въведем-------
-        System.out.println("How many new students do you like to add");
-        int addNumberOfStudents = Integer.parseInt(reader.readLine());
+        //Задача 2
+        //Добавяме ученици
+        int addStudentNumber = addNumberOfStudents();
         //-------------------------------------------------------------
         //Цикъл за създаване на обекти от клас Student
-        for (int i = 0; i < addNumberOfStudents; i++) {
-            //--Въвеждаме номер на ученика---------
-            System.out.println("Please enter student number");
-            String numberOfTheStudent = reader.readLine();
+        for (int i = 0; i < addStudentNumber; i++) {
+            String validNumberOfTheStudent = numOfStudentAdd();//Добавяме номер на ученика
             //--------------------------------------
-            //--Въвеждаме Име на ученика---------
-            System.out.println("Enter the name of the student");
-            String nameOfTheStudent = reader.readLine();
+            String validNameOfTheStudent = studentNameAdd();//Добавяме име на ученика
             //--------------------------------------
-            //--Въвеждаме брой оценки на ученика---------
-            System.out.println("How much grades would you like to enter");
-            int numberOfEnteredGrades = Integer.parseInt(reader.readLine());
-            //--------------------------------------
-            //Цикъл за въвеждане на оценки в динамичен масив
-            if (numberOfEnteredGrades >= 5) {
-                for (int j = 0; j < numberOfEnteredGrades; j++) {
-                    System.out.printf("%nPlease enter grade number : %d %n", j + 1);
-                    gradesStudents.add(Double.parseDouble(reader.readLine()));
-                }
-                //Сортираме оценките по възходящо ред чрез bubble sort оптимизираната версия
-                bubbleSortingAlgorithm(gradesStudents);
-                //За тест на сортировката
-                //System.out.println("Sorted " + gradesStudents.toString());
-            }
+            studentGradesAdd();//Добавяме оценките
             //Попълваме конструктора на нов обект от клас Ученик
-            Student newStudent = new Student(numberOfTheStudent, nameOfTheStudent, gradesStudents);
-            //Добавяме нов ученик
-            students.add(newStudent);
+            try {
+                //Добавяме нов ученик
+                Student newStudent = new Student(validNumberOfTheStudent, validNameOfTheStudent, gradesStudents);
+                students.add(newStudent);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+
+            }
         }
         System.out.println(students.toString());
     }
+
+    private static void studentGradesAdd() throws IOException {
+        //--Въвеждаме брой оценки на ученика---------
+        System.out.println("How much grades would you like to enter for student . The minimum number is five !");
+        int numberOfEnteredGrades = Integer.parseInt(reader.readLine());
+        //--------------------------------------
+        //Цикъл за въвеждане на оценки в динамичен масив
+        if (numberOfEnteredGrades >= 5) {
+            for (int j = 0; j < numberOfEnteredGrades; j++) {
+                System.out.printf("%nPlease enter grade number : %d %n", j + 1);
+                double addGrade = Double.parseDouble(reader.readLine());
+                //Филтрираме оценката от 2.00 до 6.00 на входа в масива
+                if (addGrade >= 2.00 && addGrade <= 6.00) {
+                    //Добавяме оценката ако е валсидна
+                    gradesStudents.add(addGrade);
+                } else {
+                    System.out.println("Grade is not in the valid range");
+                }
+            }
+            //Сортираме оценките по възходящо ред чрез bubble sort оптимизираната версия
+            bubbleSortingAlgorithm(gradesStudents);
+            //За тест на сортировката
+            //System.out.println("Sorted " + gradesStudents.toString());
+        } else {
+            System.out.println("Please enter at least 5 grades");
+        }
+    }
+
+    private static String studentNameAdd() throws IOException {
+        //--Въвеждаме Име на ученика---------
+        System.out.println("Enter the name of the student");
+        String validNameOfTheStudent = "";
+        String nameOfTheStudent = reader.readLine();
+        if (nameOfTheStudent != null && nameOfTheStudent.length() > 0) {
+            validNameOfTheStudent = nameOfTheStudent;
+        }
+        return validNameOfTheStudent;
+    }
+
+    private static String numOfStudentAdd() throws IOException {
+        //--Въвеждаме номер на ученика---------
+        System.out.println("Please enter student  number");
+        String validnumberOfTheStudent = "";
+        String numberOfTheStudent = reader.readLine();
+        //Валидираме номера на студента
+        if (numberOfTheStudent != null && numberOfTheStudent.length() > 0) {
+            //Ако е валиден го подаваме на констурктора на обекта
+            validnumberOfTheStudent = numberOfTheStudent;
+        }
+        return validnumberOfTheStudent;
+    }
+
+    private static int addNumberOfStudents() throws IOException {
+        //---Избираме броя на учениците които искаме да въведем-------
+        System.out.println("How many new students do you like to add");
+        int addNumberOfStudents = Integer.parseInt(reader.readLine());
+        int addStudentNumber = 0;//Брой ученици
+        if (addNumberOfStudents > 0) {//Валидация за броя на учениците
+            addStudentNumber = addNumberOfStudents;
+        } else {
+            System.out.println("Invalid number of students");
+        }
+        return addStudentNumber;
+    }
+
 
     static void bubbleSortingAlgorithm(ArrayList<Double> arrayToSort) {
         //Метод с който се сортира масив от интове чрез bubble sort
@@ -145,11 +200,5 @@ public class Main {
         }
     }
 
-    static void printArray(int[] array) {
-        //Метод за принтиране на масив от интове
-        int arrayLength = array.length;//Вземаме дължината на масива в променливата от тип инт
-        //Вземаме и принтираме всеки елемент от масива последователно
-        for (int value : array) System.out.print(value + " ");
-    }
 
 }
