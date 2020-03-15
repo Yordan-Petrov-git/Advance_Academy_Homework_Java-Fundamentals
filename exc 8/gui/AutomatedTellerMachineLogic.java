@@ -63,20 +63,23 @@ public class AutomatedTellerMachineLogic {
 
     static String initializePinOfTheClient() {
         //
-        String pin = JOptionPane.showInputDialog(" Enter your pin : ").trim();
+        String pin = "";
         while (pin.length() != 4) {
-            pin = JOptionPane.showInputDialog(" Enter your pin : ").trim();
+            pin = JOptionPane.showInputDialog(
+                    null,
+                    " Enter your pin : ",1).trim();
+
         }
         return pin;
     }
 
     static String initializeNameOfTheClient() {
         //
-        String clientName = JOptionPane.showInputDialog(null,
-                " Enter your name : ", "").trim();
+        String clientName = "";
         while (clientName.length() < 2) {
-            clientName = JOptionPane.showInputDialog(null,
-                    " Enter your name : ", "").trim();
+            clientName = JOptionPane.showInputDialog(
+                    null,
+                    " Enter your name : ", "",1).trim();
         }
         return clientName;
     }
