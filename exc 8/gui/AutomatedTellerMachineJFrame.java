@@ -205,24 +205,6 @@ public class AutomatedTellerMachineJFrame extends JFrame implements ActionListen
     }
 
 
-    static String initializePinOfTheClient() {
-        //
-        String pin = JOptionPane.showInputDialog(" Enter your pin : ").trim();
-        while (pin.length() != 4) {
-            pin = JOptionPane.showInputDialog(" Enter your pin : ").trim();
-        }
-        return pin;
-    }
 
-    static String initializeNameOfTheClient() {
-        //
-        String clientName = JOptionPane.showInputDialog(
-                " Enter your name : ", "").trim();
-        while (clientName.length() < 2) {
-            clientName = JOptionPane.showInputDialog(
-                    " Enter your name : ", "").trim();
-        }
-        return clientName;
-    }
 
 }

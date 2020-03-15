@@ -39,11 +39,17 @@ public class AutomatedTellerMachineLogic {
     }
 
     private static Client initializeClient() {
-        //Initializes the name of the client
-        String clientName = AutomatedTellerMachineJFrame.initializeNameOfTheClient();
-        //Initializes the pin number of the client
-        String pinNum = AutomatedTellerMachineJFrame.initializePinOfTheClient();
-        //returns the initialized client
+        String clientName = null;
+        String pinNum = null;
+        try {
+            //Initializes the name of the client
+            clientName = initializeNameOfTheClient();
+            //Initializes the pin number of the client
+            pinNum = initializePinOfTheClient();
+            //returns the initialized client
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Клиента не е инициализиран "+ e.getMessage());
+        }
         return new Client(clientName, pinNum);
     }
 
@@ -55,5 +61,23 @@ public class AutomatedTellerMachineLogic {
         return true;
     }
 
+    static String initializePinOfTheClient() {
+        //
+        String pin = JOptionPane.showInputDialog(" Enter your pin : ").trim();
+        while (pin.length() != 4) {
+            pin = JOptionPane.showInputDialog(" Enter your pin : ").trim();
+        }
+        return pin;
+    }
 
+    static String initializeNameOfTheClient() {
+        //
+        String clientName = JOptionPane.showInputDialog(null,
+                " Enter your name : ", "").trim();
+        while (clientName.length() < 2) {
+            clientName = JOptionPane.showInputDialog(null,
+                    " Enter your name : ", "").trim();
+        }
+        return clientName;
+    }
 }
