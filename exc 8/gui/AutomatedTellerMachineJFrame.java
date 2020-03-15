@@ -5,10 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class AutomatedTellerMachineJFrame extends JFrame implements ActionListener {
-
-
 
     //---------NumberPad-------------
     private JButton jButtonZero;
@@ -32,7 +29,7 @@ public class AutomatedTellerMachineJFrame extends JFrame implements ActionListen
 //----------------
     public static JTextField jTextFieldMenu;
 
-   // public static JTextArea jTextArea;
+    // public static JTextArea jTextArea;
 
     //----------------
     public static JLabel jLabelOutputText;
@@ -45,7 +42,7 @@ public class AutomatedTellerMachineJFrame extends JFrame implements ActionListen
         setLayout(new FlowLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 //-----------------------------
-       // jTextArea = new JTextArea("");
+        // jTextArea = new JTextArea("");
 //----------------
         jTextFieldMenu = new JTextField("                   ");
 //----------------
@@ -113,98 +110,113 @@ public class AutomatedTellerMachineJFrame extends JFrame implements ActionListen
     public static StringBuilder stringBuilderMenuBox =
             new StringBuilder();
 
+    //Action listener for button click
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
 
         if (e.getSource() == jButtonZero) {
+            //0 Button
             stringBuilderMenuBox.append(0);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
 
         } else if (e.getSource() == jButtonOne) {
+            //3 Button
             stringBuilderMenuBox.append(1);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
 
         } else if (e.getSource() == jButtonTwo) {
+            //3 Button
             stringBuilderMenuBox.append(2);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
 
         } else if (e.getSource() == jButtonThree) {
+            //3 Button
             stringBuilderMenuBox.append(3);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
 
         } else if (e.getSource() == jButtonFour) {
+            //4 Button
             stringBuilderMenuBox.append(4);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
 
         } else if (e.getSource() == jButtonFive) {
+            //6 Button
             stringBuilderMenuBox.append(5);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
 
         } else if (e.getSource() == jButtonSix) {
+            //6 Button
             stringBuilderMenuBox.append(6);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
 
         } else if (e.getSource() == jButtonSeven) {
+            //7 Button
             stringBuilderMenuBox.append(7);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
 
         } else if (e.getSource() == jButtonEight) {
-            //8
+            //8 Button
             stringBuilderMenuBox.append(8);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
 
         } else if (e.getSource() == jButtonNine) {
-            //9
+            //9 Button
             stringBuilderMenuBox.append(9);
             jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
-
         } else if (e.getSource() == jButtonCancel) {
-            //cancel
+            //Cancel
 
+            //Does nothing at the moment !!!
 
         } else if (e.getSource() == jButtonOk) {
-            //ok
+            //ok button to initiate the ATM method
             AutomatedTellerMachineLogic.atmStart();
 
         } else if (e.getSource() == jButtonDelete) {
+
             //Delete
-            //deletes string builders content
+
+            //deletes the string builder's content
+
             deleteStringBuilderContent();
             //Sets string builder content to the txtBox
             jTextFieldMenu.setText(String.valueOf(stringBuilderMenuBox));
 
         } else if (e.getSource() == jButtonBack) {
-            //Back button
+            //Back button that deletes last element
             int txtLength = stringBuilderMenuBox.length();
 
             if (txtLength > 0) {
+                //If there is something in the string builder deletes only the leftmost element
                 stringBuilderMenuBox.deleteCharAt(txtLength - 1);
+                //Sets the new  string with deleted element  at the last index
                 jTextFieldMenu.setText(stringBuilderMenuBox.toString());
 
             }
 
         }
+
     }
 
-
     public static void deleteStringBuilderContent() {
+
+        //Method for deleting string builders content
+
         AutomatedTellerMachineJFrame.
                 stringBuilderMenuBox.delete(
                 0, stringBuilderMenuBox.length());
+
     }
-
-
-
-
 }
