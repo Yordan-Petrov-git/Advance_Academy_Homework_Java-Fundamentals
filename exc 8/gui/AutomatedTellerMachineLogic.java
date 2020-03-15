@@ -49,6 +49,7 @@ public class AutomatedTellerMachineLogic {
             //returns the initialized client
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Клиента не е инициализиран "+ e.getMessage());
+            initializeClient();
         }
         return new Client(clientName, pinNum);
     }
@@ -64,10 +65,10 @@ public class AutomatedTellerMachineLogic {
     static String initializePinOfTheClient() {
         //
         String pin = "";
-        while (pin.length() != 4) {
+        while (pin.length() != 4  && pin.isBlank()) {
             pin = JOptionPane.showInputDialog(
                     null,
-                    " Enter your pin : ",1).trim();
+                    " Enter your pin : ","Input",1).trim();
 
         }
         return pin;
@@ -76,10 +77,10 @@ public class AutomatedTellerMachineLogic {
     static String initializeNameOfTheClient() {
         //
         String clientName = "";
-        while (clientName.length() < 2) {
+        while (clientName.length() < 2 && clientName.isBlank()) {
             clientName = JOptionPane.showInputDialog(
                     null,
-                    " Enter your name : ", "",1).trim();
+                    " Enter your name : ", "Input",1).trim();
         }
         return clientName;
     }
