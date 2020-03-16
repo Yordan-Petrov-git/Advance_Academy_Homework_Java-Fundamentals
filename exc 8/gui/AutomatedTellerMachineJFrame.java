@@ -118,62 +118,52 @@ public class AutomatedTellerMachineJFrame extends JFrame implements ActionListen
 
         if (e.getSource() == jButtonZero) {
             //0 Button
-            stringBuilderMenuBox.append(0);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            buttonKeypadZero();
 
 
         } else if (e.getSource() == jButtonOne) {
-            //3 Button
-            stringBuilderMenuBox.append(1);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            //1 Button
+            buttonKeypadOne();
 
 
         } else if (e.getSource() == jButtonTwo) {
-            //3 Button
-            stringBuilderMenuBox.append(2);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            //2 Button
+            buttonKeypadTwo();
 
 
         } else if (e.getSource() == jButtonThree) {
             //3 Button
-            stringBuilderMenuBox.append(3);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            buttonKeypadThree();
 
 
         } else if (e.getSource() == jButtonFour) {
             //4 Button
-            stringBuilderMenuBox.append(4);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            buttonKeypadFour();
 
 
         } else if (e.getSource() == jButtonFive) {
             //6 Button
-            stringBuilderMenuBox.append(5);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            buttonKeypadFive();
 
 
         } else if (e.getSource() == jButtonSix) {
             //6 Button
-            stringBuilderMenuBox.append(6);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            buttonKeypadSix();
 
 
         } else if (e.getSource() == jButtonSeven) {
             //7 Button
-            stringBuilderMenuBox.append(7);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            buttonKeypadSeven();
 
 
         } else if (e.getSource() == jButtonEight) {
             //8 Button
-            stringBuilderMenuBox.append(8);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            buttonKeypadEight();
 
 
         } else if (e.getSource() == jButtonNine) {
             //9 Button
-            stringBuilderMenuBox.append(9);
-            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+            buttonKeypadNine();
 
         } else if (e.getSource() == jButtonCancel) {
             //Cancel
@@ -182,32 +172,93 @@ public class AutomatedTellerMachineJFrame extends JFrame implements ActionListen
 
         } else if (e.getSource() == jButtonOk) {
             //ok button to initiate the ATM method
-            AutomatedTellerMachineLogic.atmStart();
+            buttonOk();
 
         } else if (e.getSource() == jButtonDelete) {
 
             //Delete
-
-            //deletes the string builder's content
-
-            deleteStringBuilderContent();
-            //Sets string builder content to the txtBox
-            jTextFieldMenu.setText(String.valueOf(stringBuilderMenuBox));
+            buttonDelete();
 
         } else if (e.getSource() == jButtonBack) {
             //Back button that deletes last element
-            int txtLength = stringBuilderMenuBox.length();
-
-            if (txtLength > 0) {
-                //If there is something in the string builder deletes only the leftmost element
-                stringBuilderMenuBox.deleteCharAt(txtLength - 1);
-                //Sets the new  string with deleted element  at the last index
-                jTextFieldMenu.setText(stringBuilderMenuBox.toString());
-
-            }
+            buttonBack();
 
         }
 
+    }
+
+    private void buttonBack() {
+        int txtLength = stringBuilderMenuBox.length();
+
+        if (txtLength > 0) {
+            //If there is something in the string builder deletes only the leftmost element
+            stringBuilderMenuBox.deleteCharAt(txtLength - 1);
+            //Sets the new  string with deleted element  at the last index
+            jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+
+        }
+    }
+
+    private void buttonDelete() {
+        //deletes the string builder's content
+
+        deleteStringBuilderContent();
+        //Sets string builder content to the txtBox
+        jTextFieldMenu.setText(String.valueOf(stringBuilderMenuBox));
+    }
+
+    private void buttonOk() {
+        AutomatedTellerMachineLogic.atmStart();
+    }
+
+    private void buttonKeypadNine() {
+        stringBuilderMenuBox.append(9);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+    }
+
+    private void buttonKeypadEight() {
+        stringBuilderMenuBox.append(8);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+    }
+
+    private void buttonKeypadSeven() {
+        stringBuilderMenuBox.append(7);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+    }
+
+    private void buttonKeypadSix() {
+        stringBuilderMenuBox.append(6);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+    }
+
+    private void buttonKeypadFive() {
+        stringBuilderMenuBox.append(5);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+    }
+
+    private void buttonKeypadFour() {
+        stringBuilderMenuBox.append(4);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+    }
+
+    private void buttonKeypadThree() {
+        stringBuilderMenuBox.append(3);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+    }
+
+    private void buttonKeypadTwo() {
+        stringBuilderMenuBox.append(2);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+    }
+
+    private void buttonKeypadOne() {
+        stringBuilderMenuBox.append(1);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
+    }
+
+    private void buttonKeypadZero() {
+        stringBuilderMenuBox.append(0);
+        jTextFieldMenu.setText(stringBuilderMenuBox.toString());
     }
 
     public static void deleteStringBuilderContent() {
