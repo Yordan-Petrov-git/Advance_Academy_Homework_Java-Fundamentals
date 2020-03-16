@@ -39,6 +39,7 @@ public class AutomatedTellerMachineLogic {
     }
 
     private static Client initializeClient() {
+        //
         String clientName = null;
         String pinNum = null;
         try {
@@ -48,39 +49,40 @@ public class AutomatedTellerMachineLogic {
             pinNum = initializePinOfTheClient();
             //returns the initialized client
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Клиента не е инициализиран "+ e.getMessage());
+            JOptionPane.showMessageDialog(null, "Клиента не е инициализиран " + e.getMessage());
             initializeClient();
         }
         return new Client(clientName, pinNum);
     }
 
     public static boolean isStingBuilderFull() {
+        //
         if (AutomatedTellerMachineJFrame.stringBuilderMenuBox.length() == 0) {
             JOptionPane.showMessageDialog(null, "Въведете сума.");
-        return false;
+            return false;
         }
         return true;
     }
 
-    static String initializePinOfTheClient() {
-        //
+    private static String initializePinOfTheClient() {
+        //Initializes the pin number of the client
         String pin = "";
-        while (pin.length() != 4  && pin.isBlank()) {
+        while (pin.length() != 4 && pin.isBlank()) {
             pin = JOptionPane.showInputDialog(
                     null,
-                    " Enter your pin : ","Input",1).trim();
+                    " Enter your pin : ", "Input", 1).trim();
 
         }
         return pin;
     }
 
-    static String initializeNameOfTheClient() {
+    private static String initializeNameOfTheClient() {
         //
         String clientName = "";
         while (clientName.length() < 2 && clientName.isBlank()) {
             clientName = JOptionPane.showInputDialog(
                     null,
-                    " Enter your name : ", "Input",1).trim();
+                    " Enter your name : ", "Input", 1).trim();
         }
         return clientName;
     }

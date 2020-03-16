@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AutomatedTellerMachineJFrame extends JFrame implements ActionListener {
+public class AutomatedTellerMachineJFrame extends JFrame {
 
     //---------NumberPad-------------
     private JButton jButtonZero;
@@ -50,38 +50,125 @@ public class AutomatedTellerMachineJFrame extends JFrame implements ActionListen
                 " 100 лв 200 лв 300 лв или 400лв ");
         //----------------buttonsForTheAtm---------------------------------
         jButtonZero = new JButton("0");
+        jButtonZero.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //0 Button
+                buttonKeypadZero();
+            }
+        });
         jButtonOne = new JButton("1");
+        jButtonOne.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //1 Button
+                buttonKeypadOne();
+            }
+        });
         jButtonTwo = new JButton("2");
+        jButtonTwo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //2 Button
+                buttonKeypadTwo();
+            }
+        });
         jButtonThree = new JButton("3");
+
+        jButtonThree.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //3 Button
+                buttonKeypadThree();
+            }
+        });
         jButtonFour = new JButton("4");
+        jButtonFour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //4 Button
+                buttonKeypadFour();
+            }
+        });
         jButtonFive = new JButton("5");
+        jButtonFive.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //5 Button
+                buttonKeypadFive();
+            }
+        });
         jButtonSix = new JButton("6");
+        jButtonSix.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //6 Button
+                buttonKeypadSix();
+            }
+        });
         jButtonSeven = new JButton("7");
+        jButtonSeven.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //7 Button
+                buttonKeypadSeven();
+
+            }
+        });
         jButtonEight = new JButton("8");
+        jButtonEight.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //8 Button
+                buttonKeypadEight();
+
+            }
+        });
         jButtonNine = new JButton("9");
+        jButtonNine.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //9 Button
+                buttonKeypadNine();
+            }
+        });
 //----------------
         jButtonCancel = new JButton("Cancel");
+        jButtonCancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
         jButtonDelete = new JButton("Delete");
+        jButtonDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //Delete
+                buttonDelete();
+
+            }
+        });
         jButtonBack = new JButton("Back ->");
+        jButtonBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //Back button that deletes last element
+                buttonBack();
+            }
+        });
 
         jButtonOk = new JButton("OK");
+        jButtonOk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//ok button to initiate the ATM method
+                buttonOk();
+            }
+        });
 
-        //====================================
-        jButtonZero.addActionListener(this);
-        jButtonOne.addActionListener(this);
-        jButtonTwo.addActionListener(this);
-        jButtonThree.addActionListener(this);
-        jButtonFour.addActionListener(this);
-        jButtonFive.addActionListener(this);
-        jButtonSix.addActionListener(this);
-        jButtonSeven.addActionListener(this);
-        jButtonEight.addActionListener(this);
-        jButtonNine.addActionListener(this);
-//----------------
-        jButtonCancel.addActionListener(this);
-        jButtonOk.addActionListener(this);
-        jButtonDelete.addActionListener(this);
-        jButtonBack.addActionListener(this);
         //====================================
         add(jButtonZero);
         add(jButtonOne);
@@ -93,7 +180,7 @@ public class AutomatedTellerMachineJFrame extends JFrame implements ActionListen
         add(jButtonSeven);
         add(jButtonEight);
         add(jButtonNine);
-//----------------
+//-----------   -----
         add(jButtonCancel);
         add(jButtonOk);
         add(jButtonDelete);
@@ -112,80 +199,6 @@ public class AutomatedTellerMachineJFrame extends JFrame implements ActionListen
 
     //Action listener for button click
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-
-        if (e.getSource() == jButtonZero) {
-            //0 Button
-            buttonKeypadZero();
-
-
-        } else if (e.getSource() == jButtonOne) {
-            //1 Button
-            buttonKeypadOne();
-
-
-        } else if (e.getSource() == jButtonTwo) {
-            //2 Button
-            buttonKeypadTwo();
-
-
-        } else if (e.getSource() == jButtonThree) {
-            //3 Button
-            buttonKeypadThree();
-
-
-        } else if (e.getSource() == jButtonFour) {
-            //4 Button
-            buttonKeypadFour();
-
-
-        } else if (e.getSource() == jButtonFive) {
-            //6 Button
-            buttonKeypadFive();
-
-
-        } else if (e.getSource() == jButtonSix) {
-            //6 Button
-            buttonKeypadSix();
-
-
-        } else if (e.getSource() == jButtonSeven) {
-            //7 Button
-            buttonKeypadSeven();
-
-
-        } else if (e.getSource() == jButtonEight) {
-            //8 Button
-            buttonKeypadEight();
-
-
-        } else if (e.getSource() == jButtonNine) {
-            //9 Button
-            buttonKeypadNine();
-
-        } else if (e.getSource() == jButtonCancel) {
-            //Cancel
-
-            //Does nothing at the moment !!!
-
-        } else if (e.getSource() == jButtonOk) {
-            //ok button to initiate the ATM method
-            buttonOk();
-
-        } else if (e.getSource() == jButtonDelete) {
-
-            //Delete
-            buttonDelete();
-
-        } else if (e.getSource() == jButtonBack) {
-            //Back button that deletes last element
-            buttonBack();
-
-        }
-
-    }
 
     private void buttonBack() {
         int txtLength = stringBuilderMenuBox.length();

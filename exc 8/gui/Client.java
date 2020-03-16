@@ -31,6 +31,7 @@ public class Client extends User {
     }
 
     public void showBalance() {
+        //
         AutomatedTellerMachineJFrame.jLabelOutputText
                 .setText("Вашата наличност е" + " " + this.clientBalance);
     }
@@ -44,6 +45,7 @@ public class Client extends User {
     }
 
     public boolean withdrawMoneyValidate(double withdrawAmountToValidete) {
+        //
         if (this.clientBalance < withdrawAmountToValidete) {
             AutomatedTellerMachineJFrame.jLabelOutputText
                     .setText("Недостатъчна наличност по сметка.");
