@@ -1,4 +1,9 @@
+import javax.swing.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Vehicle {
+
     private String vehicleMake;
     private String vehicleModel;
     private String vehicleYear;
@@ -6,7 +11,9 @@ public class Vehicle {
     private String vehiclePrice;
     private String vehicleDescription;
 
-    public Vehicle(String vehicleMake, String vehicleModel, String vehicleYear, String vehiclePower, String vehiclePrice, String vehicleDescription) {
+    public Vehicle(String vehicleMake, String vehicleModel, String vehicleYear,
+                   String vehiclePower, String vehiclePrice, String vehicleDescription) {
+
         setVehicleMake(vehicleMake);
         setVehicleModel(vehicleModel);
         setVehicleYear(vehicleYear);
@@ -21,7 +28,12 @@ public class Vehicle {
     }
 
     public void setVehicleMake(String vehicleMake) {
-        this.vehicleMake = vehicleMake;
+        if(validateMake(vehicleMake)){
+            this.vehicleMake = vehicleMake;
+        }else{
+            JOptionPane.showMessageDialog(null, "Невалидна информация :Грешна марка", "Грещка", 2);
+            throw  new IllegalArgumentException("Грешна марка");
+        }
     }
 
     public String getVehicleModel() {
@@ -29,7 +41,13 @@ public class Vehicle {
     }
 
     public void setVehicleModel(String vehicleModel) {
-        this.vehicleModel = vehicleModel;
+        if(validateModel(vehicleModel)){
+            this.vehicleModel = vehicleModel;
+        }else{
+            JOptionPane.showMessageDialog(null, "Невалидна информация :Грешен модел", "Грещка", 2);
+            throw  new IllegalArgumentException("Грешен модел");
+        }
+
     }
 
     public String getVehicleYear() {
@@ -37,7 +55,12 @@ public class Vehicle {
     }
 
     public void setVehicleYear(String vehicleYear) {
-        this.vehicleYear = vehicleYear;
+        if(validateYear(vehicleYear)){
+            this.vehicleYear = vehicleYear;
+        }else{
+            JOptionPane.showMessageDialog(null, "Невалидна информация :Грешна година", "Грещка", 2);
+            throw  new IllegalArgumentException("Грешна година");
+        }
     }
 
     public String getVehiclePrice() {
@@ -45,7 +68,12 @@ public class Vehicle {
     }
 
     public void setVehiclePrice(String vehiclePrice) {
-        this.vehiclePrice = vehiclePrice;
+        if(validatePrice(vehiclePrice)){
+            this.vehiclePrice = vehiclePrice;
+        }else{
+            JOptionPane.showMessageDialog(null, "Невалидна информация :Грешна цена", "Грещка", 2);
+            throw  new IllegalArgumentException("Грешна цена");
+        }
     }
 
     public String getVehiclePower() {
@@ -53,7 +81,13 @@ public class Vehicle {
     }
 
     public void setVehiclePower(String vehiclePower) {
-        this.vehiclePower = vehiclePower;
+        if(validatePower(vehiclePower)){
+            this.vehiclePower = vehiclePower;
+        }else{
+            JOptionPane.showMessageDialog(null, "Невалидна информация :Грешна мощност", "Грещка", 2);
+            throw  new IllegalArgumentException("Грешна мощност");
+        }
+
     }
 
     public String getVehicleDescription() {
@@ -64,5 +98,61 @@ public class Vehicle {
         this.vehicleDescription = vehicleDescription;
     }
 
+    public static boolean validateMake(String Input) {
+        final String regex = "^[a-zA-Z]{2,20}$";
+        final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+        final Matcher matcher = pattern.matcher(Input);
+        if (matcher.find()) {
+            return true;
+        }
+        return false;
+    }
+    public static boolean validateModel(String Input) {
+        final String regex = "^[a-zA-Z]{2,20}$";
+        final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+        final Matcher matcher = pattern.matcher(Input);
+        if (matcher.find()) {
+            return true;
+        }
+        return false;
+    }
+    public static boolean validateYear(String Input) {
+        final String regex = "^\\d{4}$";
+        final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+        final Matcher matcher = pattern.matcher(Input);
+        if (matcher.find()) {
+            return true;
+        }
+        return false;
+    }
+    public static boolean validatePrice(String Input) {
+        final String regex = "^\\d{0,9}$";
+        final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+        final Matcher matcher = pattern.matcher(Input);
+        if (matcher.find()) {
+            return true;
+        }
+        return false;
+    }
+    public static boolean validatePower(String Input) {
+        final String regex = "^\\d{1,4}$";
+        final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+        final Matcher matcher = pattern.matcher(Input);
+        if (matcher.find()) {
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "vehicleMake='" + vehicleMake + '\'' +
+                ", vehicleModel='" + vehicleModel + '\'' +
+                ", vehicleYear='" + vehicleYear + '\'' +
+                ", vehiclePower='" + vehiclePower + '\'' +
+                ", vehiclePrice='" + vehiclePrice + '\'' +
+                ", vehicleDescription='" + vehicleDescription + '\'' +
+                '}';
+    }
 
 }
