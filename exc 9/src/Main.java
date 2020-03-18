@@ -9,6 +9,5 @@ public class Main {
         atm.setVisible(true);
 
 
-
     }
 }

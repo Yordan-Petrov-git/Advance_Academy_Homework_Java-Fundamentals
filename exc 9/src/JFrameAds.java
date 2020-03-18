@@ -9,6 +9,7 @@ public class JFrameAds extends JFrame {
     //----------------------
     private JButton jButtonAdd;
     private JButton jButtonDelete;
+    private JButton jButtonShowAllAds;
     //------------------------------
 
     //----------------
@@ -55,8 +56,6 @@ public class JFrameAds extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //Add Button
                 initializeNewAdvert();
-                //Shows all Adverts
-                System.out.println(Logic.arrayListAds.toString());
             }
         });
 
@@ -67,13 +66,42 @@ public class JFrameAds extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Delete Advert Button
-                String stringToRemove = JOptionPane.showInputDialog("Въведете ID на обявата която изкате да птемехнете");
-                Logic.removeById(stringToRemove);
+                deleteAdvert();
             }
         });
         add(jButtonDelete);
+
+
+        jButtonShowAllAds = new JButton("Show All Ads");
+        jButtonShowAllAds.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Show adverts button
+                System.out.println(Logic.arrayListAds.toString());
+            }
+        });
+        add(jButtonShowAllAds);
+
 //----------------
         pack();
+    }
+
+    private void deleteAdvert() {
+
+        String stringToRemove = "";
+        try {
+
+            while (stringToRemove.isBlank()) {
+                stringToRemove =
+                        JOptionPane.showInputDialog(
+                                "Въведете ID на обявата която изкате да птемехнете");
+
+            }
+
+        } catch (NullPointerException x) {
+            deleteAdvert();
+        }
+        Logic.removeById(stringToRemove);
     }
 
     private void initializeNewAdvert() {
@@ -86,7 +114,7 @@ public class JFrameAds extends JFrame {
         String description = jTextFieldAdDescription.getText().trim();
         String adTitle = jTextFieldAdTitle.getText().trim();
 
-        //
+        //Initializes new Ad
         Logic.addNewAdvert(make, model, year,
                 power, price, description
                 , adTitle);
@@ -94,6 +122,7 @@ public class JFrameAds extends JFrame {
     }
 
     public static void clearTextFields() {
+        //Clears text Fields
         jTextFieldAdTitle.setText("         ");
         jTextFieldAdMake.setText("         ");
         jTextFieldAdModel.setText("         ");

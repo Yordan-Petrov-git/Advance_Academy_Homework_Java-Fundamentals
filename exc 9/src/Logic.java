@@ -13,20 +13,14 @@ public class Logic {
         //Creates Advert Id with length 8
         String adID = Logic.RandomString
                 .getAlphaNumericString(8);
-        //Checks if all the non optional info is present
-//        if (!vehicleMake.isBlank() && !vehicleModel.isBlank()
-//                && !vehicleYear.isBlank() && !vehiclePower.isBlank()
-//                && !vehiclePrice.isBlank() && !adTitle.isBlank()) {
-            try {
-                Advertisment addNewAd = new Advertisment(vehicleMake, vehicleModel, vehicleYear, vehiclePower, vehiclePrice, vehicleDescription, adTitle, adID);
-                arrayListAds.add(addNewAd);
-                JFrameAds.clearTextFields();
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-            // System.out.println("\nУспешно се добави ");
- //       }
 
+        try {
+            Advertisment addNewAd = new Advertisment(vehicleMake, vehicleModel, vehicleYear, vehiclePower, vehiclePrice, vehicleDescription, adTitle, adID);
+            arrayListAds.add(addNewAd);
+            JFrameAds.clearTextFields();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
@@ -68,7 +62,7 @@ public class Logic {
             for (int i = 0; i < arrayListAds.size(); i++) {//Итерира през всички елементи на масива
                 if (arrayListAds.get(i).getAdID().equals(selectedAdIdToRemove)) {//Ако елемента от арея е на определен индекс съвпада с търсения пропуска надолу
                     System.out.println("Изтрихте елемента ID :" + arrayListAds.get(i).getAdID());//Принтира съобщене
-                    JOptionPane.showMessageDialog(null, "Изтрихте елемента " , arrayListAds.get(i).getAdID(), 1);
+                    JOptionPane.showMessageDialog(null, "Изтрихте елемента ", arrayListAds.get(i).getAdID(), 1);
                     arrayListAds.remove(i);//Премахва елемента на индекс I
                     idMatches = true;//Когато е намерено съвпадение
                     break;//Прекъсва цикъла след като изтрие елемента

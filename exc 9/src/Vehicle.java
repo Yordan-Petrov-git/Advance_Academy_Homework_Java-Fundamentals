@@ -28,11 +28,11 @@ public class Vehicle {
     }
 
     public void setVehicleMake(String vehicleMake) {
-        if(validateMake(vehicleMake)){
+        if (validateMake(vehicleMake)) {
             this.vehicleMake = vehicleMake;
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Невалидна информация :Грешна марка", "Грещка", 2);
-            throw  new IllegalArgumentException("Грешна марка");
+            throw new IllegalArgumentException("Грешна марка");
         }
     }
 
@@ -41,11 +41,11 @@ public class Vehicle {
     }
 
     public void setVehicleModel(String vehicleModel) {
-        if(validateModel(vehicleModel)){
+        if (validateModel(vehicleModel)) {
             this.vehicleModel = vehicleModel;
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Невалидна информация :Грешен модел", "Грещка", 2);
-            throw  new IllegalArgumentException("Грешен модел");
+            throw new IllegalArgumentException("Грешен модел");
         }
 
     }
@@ -55,11 +55,11 @@ public class Vehicle {
     }
 
     public void setVehicleYear(String vehicleYear) {
-        if(validateYear(vehicleYear)){
+        if (validateYear(vehicleYear)) {
             this.vehicleYear = vehicleYear;
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Невалидна информация :Грешна година", "Грещка", 2);
-            throw  new IllegalArgumentException("Грешна година");
+            throw new IllegalArgumentException("Грешна година");
         }
     }
 
@@ -68,11 +68,11 @@ public class Vehicle {
     }
 
     public void setVehiclePrice(String vehiclePrice) {
-        if(validatePrice(vehiclePrice)){
+        if (validatePrice(vehiclePrice)) {
             this.vehiclePrice = vehiclePrice;
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Невалидна информация :Грешна цена", "Грещка", 2);
-            throw  new IllegalArgumentException("Грешна цена");
+            throw new IllegalArgumentException("Грешна цена");
         }
     }
 
@@ -81,11 +81,11 @@ public class Vehicle {
     }
 
     public void setVehiclePower(String vehiclePower) {
-        if(validatePower(vehiclePower)){
+        if (validatePower(vehiclePower)) {
             this.vehiclePower = vehiclePower;
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Невалидна информация :Грешна мощност", "Грещка", 2);
-            throw  new IllegalArgumentException("Грешна мощност");
+            throw new IllegalArgumentException("Грешна мощност");
         }
 
     }
@@ -107,6 +107,7 @@ public class Vehicle {
         }
         return false;
     }
+
     public static boolean validateModel(String Input) {
         final String regex = "^[a-zA-Z]{2,20}$";
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
@@ -116,6 +117,7 @@ public class Vehicle {
         }
         return false;
     }
+
     public static boolean validateYear(String Input) {
         final String regex = "^\\d{4}$";
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
@@ -125,6 +127,7 @@ public class Vehicle {
         }
         return false;
     }
+
     public static boolean validatePrice(String Input) {
         final String regex = "^\\d{0,9}$";
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
@@ -134,6 +137,7 @@ public class Vehicle {
         }
         return false;
     }
+
     public static boolean validatePower(String Input) {
         final String regex = "^\\d{1,4}$";
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
@@ -143,6 +147,7 @@ public class Vehicle {
         }
         return false;
     }
+
     @Override
     public String toString() {
         return "Vehicle{" +

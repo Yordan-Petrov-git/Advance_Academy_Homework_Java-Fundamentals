@@ -10,9 +10,9 @@ public class Advertisment extends Vehicle {
 
     public Advertisment(String vehicleMake, String vehicleModel, String vehicleYear
             , String vehiclePower, String vehiclePrice, String vehicleDescription
-            ,String adTitle, String adID) {
+            , String adTitle, String adID) {
 
-        super(vehicleMake,vehicleModel,vehicleYear,vehiclePower,vehiclePrice,vehicleDescription);
+        super(vehicleMake, vehicleModel, vehicleYear, vehiclePower, vehiclePrice, vehicleDescription);
 
         setAdTitle(adTitle);
         setAdID(adID);
@@ -24,11 +24,11 @@ public class Advertisment extends Vehicle {
     }
 
     public void setAdTitle(String adTitle) {
-        if(validateTitle(adTitle)){
+        if (validateTitle(adTitle)) {
             this.adTitle = adTitle;
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Невалидна информация :Грешно заглавие", "Грещка", 2);
-            throw  new IllegalArgumentException("Грешно заглавие");
+            throw new IllegalArgumentException("Грешно заглавие");
         }
 
     }
@@ -38,11 +38,11 @@ public class Advertisment extends Vehicle {
     }
 
     public void setAdID(String adID) {
-        if(validateId(adID)){
+        if (validateId(adID)) {
             this.adID = adID;
-        }else {
+        } else {
             JOptionPane.showMessageDialog(null, "Невалидна информация :Грешно ID", "Грещка", 2);
-            throw  new IllegalArgumentException("Грешно ID");
+            throw new IllegalArgumentException("Грешно ID");
         }
 
     }
@@ -56,6 +56,7 @@ public class Advertisment extends Vehicle {
         }
         return false;
     }
+
     public static boolean validateId(String Input) {
         final String regex = "^[a-zA-Z0-9]{8}$";
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
@@ -65,6 +66,7 @@ public class Advertisment extends Vehicle {
         }
         return false;
     }
+
     @Override
     public String toString() {
         return super.toString() + "Advertisment{" +
