@@ -1,6 +1,7 @@
 public class Waitress {
-    //name
-    //username
-    //pin
+
+   private String waitressName;
+   private String waitressUsername;
+   private String waitressPassword;
 
 }
