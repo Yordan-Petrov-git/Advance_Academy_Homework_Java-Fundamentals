@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginPanel extends JFrame {
+public class LoginPanel extends JPanel{
 
     //Login panel
 //1.  login panel
@@ -16,14 +16,11 @@ public class LoginPanel extends JFrame {
     private JButton jButtonLogin;
     private JTextField jTextFieldUsername;
     private JTextField jTextFieldPassword;
+    public JFrameMain jFrame;
 
-    public LoginPanel() {
-        super("Login");
-//----------------
-        this.setLayout(new FlowLayout());
-        //this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    public LoginPanel(JFrameMain jFrame) {
+        this.jFrame = jFrame;
 
-//-----------------------------
         jLabelLoginTop = new JLabel("Enter your credentials");
         add(jLabelLoginTop);
 
@@ -37,12 +34,22 @@ public class LoginPanel extends JFrame {
         jButtonLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //
-
+                String username = jTextFieldUsername.getText().trim();
+                String password = jTextFieldUsername.getText().trim();
+                login(username, password);
             }
         });
 
         add(jButtonLogin);
+
+    }
+
+    public void login(String username, String password) {
+
+//        if (){
+
+//
+//        }
 
     }
 }

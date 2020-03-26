@@ -1,17 +1,19 @@
 package Views;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MenuPanel extends JFrame {
+public class MenuPanel extends JPanel {
 
     private JButton jButtonAddNewOrder;
     private JButton jButtonAddExistingOrder;
     private JButton jButtonShowBill;
+    public JFrameMain jFrame;
 
-    public MenuPanel() {
-        super("Main menu");
+    public MenuPanel(JFrameMain jFrame) {
+        this.jFrame = jFrame;
 
         jButtonAddNewOrder = new JButton("Add new order");
         jButtonAddNewOrder.addActionListener(new ActionListener() {

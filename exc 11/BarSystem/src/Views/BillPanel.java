@@ -1,10 +1,16 @@
 package Views;
 
-public class BillPanel extends JFrame {
+import javax.swing.*;
 
-    public BillPanel() {
-        super("Bill");
+public class BillPanel extends JPanel {
+    private JLabel jLabelShowBill;
+    public JFrameMain jFrame;
 
+    public BillPanel(JFrameMain jFrame) {
+        this.jFrame = jFrame;
+
+        jLabelShowBill = new JLabel("");
+        add(jLabelShowBill);
     }
 
     //Shows the bill
