@@ -1,3 +1,7 @@
+package Models;
+
+import org.w3c.dom.ls.LSOutput;
+
 public class Waiter {
 
 
@@ -36,5 +40,7 @@ public class Waiter {
         this.waitressPassword = waitressPassword;
     }
 
-
+    public void printWaiterName() {
+        System.out.println(getWaitressName());
+    }
 }
