@@ -5,25 +5,25 @@ import java.util.regex.Pattern;
 
 public class Validators {
 
-    public static boolean validateUserName(String Input) {
+    public static boolean validateUserName(String InputName) {
         //Validates username of the waiter
         //Username must contain only letters min
         final String regex = "^[a-zA-Z]{2,30}$";
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
-        final Matcher matcher = pattern.matcher(Input);
+        final Matcher matcher = pattern.matcher(InputName);
         if (matcher.find()) {
             return true;
         }
         return false;
     }
 
-    public static boolean validatePassword(String Input) {
+    public static boolean validatePassword(String InputPassword) {
         //Validate password of the waiter
         //Valid password is any 4 digit combination
         //Example : 1234 , 2345 , 5896 , 5555 , 8754 , 9658 ...
         final String regex = "^\\d{4}$";
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
-        final Matcher matcher = pattern.matcher(Input);
+        final Matcher matcher = pattern.matcher(InputPassword);
         if (matcher.find()) {
             return true;
         }

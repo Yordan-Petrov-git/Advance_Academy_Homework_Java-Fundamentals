@@ -1,5 +1,7 @@
 package Models;
 
+import Helpers.Validators;
+
 public class User {
 
     private String userFullName;
@@ -13,7 +15,12 @@ public class User {
     }
 
     public void setUserFullName(String userFullName) {
-        this.userFullName = userFullName;
+
+        if (Validators.validateUserName(userFullName)) {
+            this.userFullName = userFullName;
+        } else {
+            throw new IllegalArgumentException("Invalid full name");
+        }
     }
 
     public void printWaiterName() {
