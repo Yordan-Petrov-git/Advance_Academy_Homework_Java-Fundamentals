@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Order {
     private ArrayList<Product> productArrayList;
+    private String tableID;
+    private String WaiterUsername;
+
 
     public Order(ArrayList<Product> productArrayList, String tableID, String waiterUsername) {
         setProductArrayList(productArrayList);
@@ -11,8 +14,6 @@ public class Order {
         setWaiterUsername(waiterUsername);
     }
 
-    private String tableID;
-    private String WaiterUsername;
 
     public ArrayList<Product> getProductArrayList() {
         return this.productArrayList;

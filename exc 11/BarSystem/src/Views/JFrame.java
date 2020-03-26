@@ -3,7 +3,9 @@ package Views;
 import javax.swing.*;
 
 public class JFrame extends JPanel {
+
     public JFrame(String login) {
+
     }
 
     //-------------------
