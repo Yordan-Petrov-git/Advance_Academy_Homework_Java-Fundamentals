@@ -12,10 +12,10 @@ import java.util.List;
 public class JFrameMain extends JFrame {
 
 
-    public static List<Waiter> waitresses = new ArrayList<>();
+    public static List<Waiter> waiter = new ArrayList<>();
     public static List<Product> products = new ArrayList<>();
-    public List<Order> orders = new ArrayList<>();
-    public Waiter currentWaiter;
+    public static List<Order> orders = new ArrayList<>();
+    public static Waiter currentWaiter;
 
     public LoginPanel loginPanel;
     public MenuPanel menuPanel;

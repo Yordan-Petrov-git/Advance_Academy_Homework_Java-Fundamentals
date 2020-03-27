@@ -1,6 +1,7 @@
 package Views;
 
 import Helpers.Validators;
+import Models.Waiter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,8 +38,8 @@ public class LoginPanel extends JPanel {
         jButtonLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                 String username = jTextFieldUsername.getText().trim();
-                 String password = jTextFieldPassword.getText().trim();
+                String username = jTextFieldUsername.getText().trim();
+                String password = jTextFieldPassword.getText().trim();
                 login(username, password);
             }
         });
@@ -48,9 +49,19 @@ public class LoginPanel extends JPanel {
     }
 
     public void login(String username, String password) {
-        if (Validators.validatePassword(password)) {
-            System.out.println("valid pin");
-            jFrame.showMenuPanel();
+        //Method that shows menu jPanel to chose an action : make new order , add to ex
+
+        if (Validators.validatePassword(password) && Validators.validateUserName(username)) {
+            System.out.println("valid input");
+            for (Waiter waiter : JFrameMain.waiter) {
+                if (username.equals(waiter.getWaitressUsername()) && password.equals(waiter.getWaitressPassword())) {
+                    System.out.println("logged in as " + waiter.getWaitressUsername());
+                    JFrameMain.currentWaiter = waiter;
+                    System.out.println(JFrameMain.currentWaiter.toString());
+                    jFrame.showMenuPanel();
+                }
+            }
+
         }
 
     }

@@ -3,6 +3,7 @@ package Models;
 public class Waiter extends User {
 
 
+
     private String waitressUsername;
     private String waitressPassword;
 
@@ -11,8 +12,6 @@ public class Waiter extends User {
         setWaitressUsername(waitressUsername);
         setWaitressPassword(waitressPassword);
     }
-
-
 
     public String getWaitressUsername() {
         return this.waitressUsername;
@@ -30,5 +29,13 @@ public class Waiter extends User {
         this.waitressPassword = waitressPassword;
     }
 
+
+    @Override
+    public String toString() {
+        return "Waiter{" +
+                "waitressUsername='" + waitressUsername + '\'' +
+                ", waitressPassword='" + waitressPassword + '\'' +
+                '}';
+    }
 
 }

@@ -16,14 +16,19 @@ public class User {
 
     public void setUserFullName(String userFullName) {
 
-        if (Validators.validateUserName(userFullName)) {
+        if (Validators.validateFullName(userFullName)) {
             this.userFullName = userFullName;
         } else {
             throw new IllegalArgumentException("Invalid full name");
         }
     }
 
-    public void printWaiterName() {
-        System.out.println(getUserFullName());
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userFullName='" + userFullName + '\'' +
+                '}';
     }
+
 }
