@@ -1,11 +1,13 @@
 package Views;
 
+import Helpers.Validators;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginPanel extends JPanel{
+public class LoginPanel extends JPanel {
 
     //Login panel
 //1.  login panel
@@ -17,6 +19,7 @@ public class LoginPanel extends JPanel{
     private JTextField jTextFieldUsername;
     private JTextField jTextFieldPassword;
     public JFrameMain jFrame;
+
 
     public LoginPanel(JFrameMain jFrame) {
         this.jFrame = jFrame;
@@ -34,8 +37,8 @@ public class LoginPanel extends JPanel{
         jButtonLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = jTextFieldUsername.getText().trim();
-                String password = jTextFieldUsername.getText().trim();
+                 String username = jTextFieldUsername.getText().trim();
+                 String password = jTextFieldPassword.getText().trim();
                 login(username, password);
             }
         });
@@ -45,11 +48,10 @@ public class LoginPanel extends JPanel{
     }
 
     public void login(String username, String password) {
-
-//        if (){
-
-//
-//        }
+        if (Validators.validatePassword(password)) {
+            System.out.println("valid pin");
+            jFrame.showMenuPanel();
+        }
 
     }
 }
