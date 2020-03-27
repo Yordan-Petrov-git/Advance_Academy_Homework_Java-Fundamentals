@@ -65,26 +65,50 @@ public class ItemsPanel extends JPanel {
 
     private void createOrder() {
         //Finishes the order
+
+        String products =
+                JFrameMain.products.toString()
+                        .replace("[", "")
+                        .replace("]", "");
+        //remove brackets([) convert it to string
+
         int result =
                 JOptionPane.showConfirmDialog(
                         null
-                        , "Products" + JFrameMain.products
-                                + "Will be added to "+ JFrameMain.currentTableId
+                        , String.format(" Products : " + products
+                                + "%n Will be added to " + JFrameMain.currentTableId)
                         , "Finish order"
                         , JOptionPane.YES_NO_OPTION);
 
         if (result == JOptionPane.YES_OPTION) {
             //yes option only !
-            InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products,JFrameMain.currentTableId,JFrameMain.currentWaiter);
+            InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products, JFrameMain.currentTableId, JFrameMain.currentWaiter);
             jFrame.itemsPanel.setVisible(false);
             remove(jFrame.itemsPanel);
             jFrame.showLoginPanel();
-
         }
     }
 
     private void deleteOrder() {
         //Deletes the order
-        JFrameMain.products.clear();
+
+        String products =
+                JFrameMain.products.toString()
+                        .replace("[", "")
+                        .replace("]", "");
+        //remove brackets([) convert it to string
+
+        int result =
+                JOptionPane.showConfirmDialog(
+                        null
+                        , String.format(" Products : " +"%n"+ " %s"
+                                + " %n Will be deleted from " + "%s",products,JFrameMain.currentTableId)
+                        , "Delete order"
+                        , JOptionPane.YES_NO_OPTION);
+
+        if (result == JOptionPane.YES_OPTION) {
+            //yes option only !
+            JFrameMain.products.clear();
+        }
     }
 }
