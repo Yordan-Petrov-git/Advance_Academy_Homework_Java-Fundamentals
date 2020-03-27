@@ -30,21 +30,26 @@ public class TablesPanel extends JPanel {
         jButtonTable.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //
+                //Button for the selected table
                 String tableId = ((JButton) e.getSource()).getText();
-                //JFrameMain.currentTable = tableId;
-
+                //Gets the clicked button text
                 boolean isOrderFound = false;
+                //boolean for search state
+                //Searching for the order in the arrayList
                 for (Order order : JFrameMain.orders) {
+                    //Iterates through the arrayList containing orders
                     if (order.getTableID().equals(tableId)) {
+                        //If the order is for the current table
                         JFrameMain.currentOrder = order;
-                        System.out.println("We have order  ");
+                        //Saves the selected order for later use
                         isOrderFound = true;
+                        //If order is found
                         orderFound();
                         break;
                     }
                 }
                 if (!isOrderFound) {
+                    //if the order is not found
                     orderNotFound(tableId);
                 }
 
