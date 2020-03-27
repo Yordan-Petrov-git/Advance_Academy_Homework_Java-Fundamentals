@@ -1,10 +1,13 @@
 package Views;
 
 import Helpers.InitializeObjects;
+import Models.Product;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class ItemsPanel extends JPanel {
 
@@ -28,7 +31,8 @@ public class ItemsPanel extends JPanel {
         jButtonApply.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //
+                //Create order
+                createOrder();
             }
         });
         add(jButtonApply);
@@ -38,7 +42,8 @@ public class ItemsPanel extends JPanel {
         jButtonEraseOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //
+                //Erase order button
+                deleteOrder();
             }
         });
         add(jButtonEraseOrder);
@@ -58,5 +63,30 @@ public class ItemsPanel extends JPanel {
             }
         });
         return jButtonProduct;
+    }
+
+    private void createOrder() {
+        //Finishes the order
+        InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products);
+        for (Product product : JFrameMain.products) {
+            System.out.print(product.toString());
+        }
+       // System.out.println(JFrameMain.products.toString());
+    }
+
+    private void deleteOrder() {
+        //Deletes the order
+        //Arrays.stream(JFrameMain.products.forEach(e -> remove(e)));
+
+        for (int i = 0; i < JFrameMain.products.size(); i++) {
+            JFrameMain.products.remove(i);
+        }
+
+        for (Product product : JFrameMain.products) {
+            System.out.print(product.toString());
+        }
+
+        //  JFrameMain.products.remove();
+        //System.out.println(JFrameMain.products.toString());
     }
 }

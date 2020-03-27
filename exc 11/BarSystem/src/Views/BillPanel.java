@@ -13,7 +13,7 @@ public class BillPanel extends JPanel {
         double bill = getBill();
         jLabelShowBill = new JLabel(
                 "Your  waiter was: " + JFrameMain.currentWaiter.getUserFullName()
-                        + " The bill for " + JFrameMain.currentTable
+                        + " The bill for " + JFrameMain.currentOrder.getTableID()
                         + "is total :" + String.valueOf(bill));
         add(jLabelShowBill);
     }

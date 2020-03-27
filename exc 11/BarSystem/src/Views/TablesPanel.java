@@ -107,12 +107,13 @@ public class TablesPanel extends JPanel {
             //2 -> add to existing order
             //3 -> show bill
             case 1:
-                InitializeObjects.initializeNewWOrder(tableId, JFrameMain.currentWaiter);
                 //1 -> New order option  :  order not found : sazdavame nova pora4ka i q dobavqme v masiva s pora4ki
+                InitializeObjects.initializeNewWOrder(tableId, JFrameMain.currentWaiter);
                 //go to the next panel
+                jFrame.showItemsPanel();
                 break;
             case 2:
-                //2 -> Existing order option :  order not found : nqma pora4ka koqto da prodalji na tazi masa i da go popita mdali i ska da napravi nova pora4ka
+                //2 -> Existing order option :  order not found : popup to ask if do we want to make new order
                 int result =
                         JOptionPane.showConfirmDialog(
                                 null
@@ -122,7 +123,7 @@ public class TablesPanel extends JPanel {
                                 , JOptionPane.YES_NO_OPTION);
 
                 if (result == JOptionPane.YES_OPTION) {
-                    //Add new order
+                    //Add new order on yes option only !
                     InitializeObjects.initializeNewWOrder(tableId, JFrameMain.currentWaiter);
                     jFrame.showItemsPanel();
                 }

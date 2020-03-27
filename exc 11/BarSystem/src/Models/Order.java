@@ -9,7 +9,7 @@ public class Order {
     private Waiter WaiterCurrent;
 
 
-    public Order( String tableID, Waiter waiterCurrent) {
+    public Order(String tableID, Waiter waiterCurrent) {
         //setProductArrayList(productArrayList);
         setTableID(tableID);
         setWaiter(waiterCurrent);
