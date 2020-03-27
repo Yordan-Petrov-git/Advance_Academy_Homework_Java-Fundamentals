@@ -7,9 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class TablesPanel extends JPanel {
-
 
     private JButton jButtonTable;
     public JFrameMain jFrame;
@@ -19,18 +17,22 @@ public class TablesPanel extends JPanel {
         this.jFrame = jFrame;
 
         int tableCount = 5;
+        //Variable for the table count
+        //How much tables do we want
         for (int i = 0; i <= tableCount; i++) {
+            //Creates the buttons for the tables
             add(button("Table " + i));
         }
 
     }
 
     private JButton button(String buttonName) {
+        //Creates new button for the items
         jButtonTable = new JButton(buttonName);
         jButtonTable.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Button for the selected table
+                //Button for the selected table ID
                 String tableId = ((JButton) e.getSource()).getText();
                 //Gets the clicked button text
                 boolean isOrderFound = false;
