@@ -19,7 +19,11 @@ public class Main {
         String username = "Ivan";
         String password="1234";
         InitializeObjects.initializeNewWaiter(fullName,username,password);
-       // InitializeObjects.initializeNewWaiter("Ivan Ivanov","Ivan","1234");
+        InitializeObjects.initializeNewWProduct("Wiskey", "50ml", 6.00);
+//        InitializeObjects.initializeNewWOrder(JFrameMain.products,"Table 0","Ivan Ivanov");
+//        InitializeObjects.initializeNewWOrder(JFrameMain.products,"Table 1","Ivan Ivanov");
+        System.out.println(JFrameMain.orders.toString());
+        // InitializeObjects.initializeNewWaiter("Ivan Ivanov","Ivan","1234");
 
         //sTART
         JFrameMain jFrame =  new JFrameMain();

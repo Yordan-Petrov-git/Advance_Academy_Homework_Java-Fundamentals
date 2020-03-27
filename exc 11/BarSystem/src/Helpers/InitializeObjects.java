@@ -1,8 +1,11 @@
 package Helpers;
 
+import Models.Order;
 import Models.Product;
 import Models.Waiter;
 import Views.JFrameMain;
+
+import java.util.ArrayList;
 
 public class InitializeObjects {
 
@@ -28,10 +31,22 @@ public class InitializeObjects {
     }
 
     public static void initializeNewWProduct(String productName, String productQuantity, double productPrice) {
-//        String productName = "Vodka";
-//        String productQuantity = "200ml";
-//        double productPrice=15.00;
+
+//        for (Product product : JFrameMain.products ) {
+//
+//        }
         Product product = new Product(productName, productQuantity, productPrice);
         JFrameMain.products.add(product);
+    }
+
+    public static void initializeNewWOrder( String tableID, Waiter WaiterName) {
+
+        Order order = new Order( tableID, WaiterName);
+        JFrameMain.orders.add(order);
+    }
+    public static void initializeNewWOrderProductArrayList(ArrayList <Product> productArrayList) {
+
+        Order order = new Order(productArrayList);
+        JFrameMain.orders.add(order);
     }
 }

@@ -1,5 +1,8 @@
 package Views;
 
+import Helpers.InitializeObjects;
+import Models.Order;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,16 +18,14 @@ public class ItemsPanel extends JPanel {
     public ItemsPanel(JFrameMain jFrame) {
         this.jFrame = jFrame;
 
+        add(button("Whiskey 50ml","50 ml",7.00));
+        add(button("Whiskey 100ml","100 ml",10.00));
+        add(button("Whiskey 200ml","200 ml",15.00));
+        add(button("Vodka 50ml","50 ml",4.00));
+        add(button("Vodka 100ml","100 ml",6.00));
 
-        String jButtonProductName = "Whiskey";
-        jButtonProduct = new JButton(jButtonProductName);
-        jButtonProduct.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //
-            }
-        });
-        add(jButtonProduct);
+
+       // add(jButtonProduct);
 
 
         String jButtonAcceptName = "Apply";
@@ -48,7 +49,18 @@ public class ItemsPanel extends JPanel {
         add(jButtonEraseOrder);
 
     }
-    //5.  products panel
-    // 14 buttons
-    // 1 label
+
+    private JButton button(String buttonName ,String quantity ,Double price) {
+        jButtonProduct = new JButton(buttonName);
+        jButtonProduct.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //
+                String currentButton = ((JButton) e.getSource()).getText();
+                // System.out.println(currentButton);
+                InitializeObjects.initializeNewWProduct(currentButton, quantity, price);
+            }
+        });
+        return jButtonProduct;
+    }
 }

@@ -6,15 +6,18 @@ public class Order {
 
     private ArrayList<Product> productArrayList;
     private String tableID;
-    private String WaiterUsername;
+    private Waiter WaiterCurrent;
 
 
-    public Order(ArrayList<Product> productArrayList, String tableID, String waiterUsername) {
-        setProductArrayList(productArrayList);
+    public Order( String tableID, Waiter waiterCurrent) {
+        //setProductArrayList(productArrayList);
         setTableID(tableID);
-        setWaiterUsername(waiterUsername);
+        setWaiter(waiterCurrent);
     }
 
+    public Order(ArrayList<Product> productArrayList) {
+        setProductArrayList(productArrayList);
+    }
 
     public ArrayList<Product> getProductArrayList() {
         return this.productArrayList;
@@ -32,12 +35,12 @@ public class Order {
         this.tableID = tableID;
     }
 
-    public String getWaiterUsername() {
-        return this.WaiterUsername;
+    public Waiter getWaiter() {
+        return this.WaiterCurrent;
     }
 
-    public void setWaiterUsername(String waiterUsername) {
-        WaiterUsername = waiterUsername;
+    public void setWaiter(Waiter waiterCurrent) {
+        WaiterCurrent = waiterCurrent;
     }
 
 

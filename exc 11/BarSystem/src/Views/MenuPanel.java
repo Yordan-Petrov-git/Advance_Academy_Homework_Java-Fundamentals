@@ -52,14 +52,14 @@ public class MenuPanel extends JPanel {
     // 3buttons
 
     public void addNewOrder() {
-
+        jFrame.showTablesPanel(1);
     }
 
     public void addToExistingOrder() {
-
+        jFrame.showTablesPanel(2);
     }
 
     public void showBill() {
-
+        jFrame.showTablesPanel(3);
     }
 }
