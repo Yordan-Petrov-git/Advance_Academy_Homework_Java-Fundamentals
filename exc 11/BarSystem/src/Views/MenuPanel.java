@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class MenuPanel extends JPanel {
 
+    private JLabel jLabelTop;
     private JButton jButtonAddNewOrder;
     private JButton jButtonAddExistingOrder;
     private JButton jButtonShowBill;
@@ -15,12 +16,14 @@ public class MenuPanel extends JPanel {
     public MenuPanel(JFrameMain jFrame) {
         this.jFrame = jFrame;
 
+        jLabelTop = new JLabel("Menu");
+        add(jLabelTop);
+
         jButtonAddNewOrder = new JButton("Add new order");
         jButtonAddNewOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //
-
+                addNewOrder();
             }
         });
         add(jButtonAddNewOrder);
@@ -29,8 +32,7 @@ public class MenuPanel extends JPanel {
         jButtonAddExistingOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //
-
+                addToExistingOrder();
             }
         });
         add(jButtonAddExistingOrder);
@@ -39,8 +41,7 @@ public class MenuPanel extends JPanel {
         jButtonShowBill.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //
-
+                showBill();
             }
         });
         add(jButtonShowBill);
@@ -50,4 +51,15 @@ public class MenuPanel extends JPanel {
     // 1 label
     // 3buttons
 
+    public void addNewOrder() {
+
+    }
+
+    public void addToExistingOrder() {
+
+    }
+
+    public void showBill() {
+
+    }
 }
