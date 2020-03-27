@@ -75,17 +75,28 @@ public class ItemsPanel extends JPanel {
         int result =
                 JOptionPane.showConfirmDialog(
                         null
-                        , String.format(" Products : " + products
-                                + "%n Will be added to " + JFrameMain.currentTableId)
+                        , String.format(" Products : " + "%n" + "%s"
+                                + "%n Will be added to " + "%s", products, JFrameMain.currentTableId)
                         , "Finish order"
                         , JOptionPane.YES_NO_OPTION);
 
         if (result == JOptionPane.YES_OPTION) {
             //yes option only !
-            InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products, JFrameMain.currentTableId, JFrameMain.currentWaiter);
-            jFrame.itemsPanel.setVisible(false);
-            remove(jFrame.itemsPanel);
-            jFrame.showLoginPanel();
+
+            if (JFrameMain.products.isEmpty()) {
+
+                JOptionPane.showMessageDialog(
+                        null
+                        , "Please select at lest one item"
+                        , "No products"
+                        , JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products, JFrameMain.currentTableId, JFrameMain.currentWaiter);
+                jFrame.itemsPanel.setVisible(false);
+                remove(jFrame.itemsPanel);
+                jFrame.showLoginPanel();
+            }
+
         }
     }
 
@@ -101,14 +112,26 @@ public class ItemsPanel extends JPanel {
         int result =
                 JOptionPane.showConfirmDialog(
                         null
-                        , String.format(" Products : " +"%n"+ " %s"
-                                + " %n Will be deleted from " + "%s",products,JFrameMain.currentTableId)
+                        , String.format(" Products : " + "%n" + " %s"
+                                + " %n Will be deleted from " + "%s", products, JFrameMain.currentTableId)
                         , "Delete order"
                         , JOptionPane.YES_NO_OPTION);
 
+
         if (result == JOptionPane.YES_OPTION) {
             //yes option only !
-            JFrameMain.products.clear();
+
+            if (JFrameMain.products.isEmpty()) {
+
+                JOptionPane.showMessageDialog(
+                        null
+                        , "Please select at lest one item"
+                        , "No products"
+                        , JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                JFrameMain.products.clear();
+            }
         }
     }
 }

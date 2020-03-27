@@ -1,7 +1,6 @@
 package Views;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,6 +22,7 @@ public class MenuPanel extends JPanel {
         jButtonAddNewOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // Add new order button
                 addNewOrder();
             }
         });
@@ -32,6 +32,7 @@ public class MenuPanel extends JPanel {
         jButtonAddExistingOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Add new  existing order button
                 addToExistingOrder();
             }
         });
@@ -41,25 +42,26 @@ public class MenuPanel extends JPanel {
         jButtonShowBill.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Show bill button
                 showBill();
             }
         });
         add(jButtonShowBill);
 
     }
-//2.  menu panel
-    // 1 label
-    // 3buttons
 
     public void addNewOrder() {
+        //Option 1
         jFrame.showTablesPanel(1);
     }
 
     public void addToExistingOrder() {
+        //Option 2
         jFrame.showTablesPanel(2);
     }
 
     public void showBill() {
+        //Option 3
         jFrame.showTablesPanel(3);
     }
 }
