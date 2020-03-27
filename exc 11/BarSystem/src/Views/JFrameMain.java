@@ -7,13 +7,14 @@ import Models.Waiter;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class JFrameMain extends JFrame {
 
 
-    public ArrayList<Order> orders = new ArrayList<>();
-    public ArrayList<Waiter> waitresses = new ArrayList<>();
-    public ArrayList<Product> products = new ArrayList<>();
+    public static List<Waiter> waitresses = new ArrayList<>();
+    public static List<Product> products = new ArrayList<>();
+    public List<Order> orders = new ArrayList<>();
     public Waiter currentWaiter;
 
     public LoginPanel loginPanel;
