@@ -9,12 +9,25 @@ import java.awt.event.ActionListener;
 
 public class TablesPanel extends JPanel {
 
+    private JButton jButtonBack;
     private JButton jButtonTable;
     public JFrameMain jFrame;
     public int clickedButton;
 
     public TablesPanel(JFrameMain jFrame) {
         this.jFrame = jFrame;
+
+
+        jButtonBack = new JButton("Back");
+        jButtonBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.tablesPanel.setVisible(false);
+                remove(jFrame.tablesPanel);
+                jFrame.showLoginPanel();
+            }
+        });
+
 
         int tableCount = 5;
         //Variable for the table count
@@ -80,7 +93,7 @@ public class TablesPanel extends JPanel {
                 break;
 
             case 2:
-                //2 ->Existing order option : order found : go to the panel with the items
+                //2 -> Existing order option : order found : go to the panel with the items
                 jFrame.showItemsPanel();
 
                 break;
@@ -138,6 +151,8 @@ public class TablesPanel extends JPanel {
                         , "No existing order for the selected table"
                         , "Order not found"
                         , JOptionPane.INFORMATION_MESSAGE);
+
+                add(jButtonBack);
 
                 break;
 

@@ -20,7 +20,7 @@ public class InitializeObjects {
                 System.out.println("Username already exists");
                 //stops
                 break;
-            } else if (!username.equals(w.getWaiterUsername())){
+            } else if (!username.equals(w.getWaiterUsername())) {
                 //initialise new waiter if username is not present in the array
                 Waiter waiter = new Waiter(fullName, username, password);
                 //adds the new waiter to the array

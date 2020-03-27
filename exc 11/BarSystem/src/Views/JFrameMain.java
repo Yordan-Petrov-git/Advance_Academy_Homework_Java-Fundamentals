@@ -31,8 +31,11 @@ public class JFrameMain extends JFrame {
         super("Bar System");
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLayout(new FlowLayout());
-        this.setSize(800, 600);
+        this.setLayout(new FlowLayout(1,2,3));
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double width = screenSize.getWidth();
+        double height = screenSize.getHeight();
+        this.setSize((int)width,(int)height);
 
         showLoginPanel();
     }

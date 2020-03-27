@@ -8,7 +8,7 @@ public class Order {
     private String tableID;
     private Waiter WaiterCurrent;
 
-    public Order(ArrayList<Product> productArrayList,String tableID, Waiter waiterCurrent) {
+    public Order(ArrayList<Product> productArrayList, String tableID, Waiter waiterCurrent) {
         setProductArrayList(productArrayList);
         setTableID(tableID);
         setWaiter(waiterCurrent);

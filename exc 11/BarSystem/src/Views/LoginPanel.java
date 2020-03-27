@@ -9,11 +9,6 @@ import java.awt.event.ActionListener;
 
 public class LoginPanel extends JPanel {
 
-    //Login panel
-//1.  login panel
-    // 1 button
-    // 3 labels
-    // 2 text boxes
     private JLabel jLabelLoginTop;
     private JButton jButtonLogin;
     private JTextField jTextFieldUsername;

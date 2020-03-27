@@ -41,7 +41,7 @@ public class Product {
     public String toString() {
         return productName + " " +
                 "Quantity " + productQuantity + " " +
-                "Price " + productPrice ;
+                "Price " + productPrice;
     }
 
 }

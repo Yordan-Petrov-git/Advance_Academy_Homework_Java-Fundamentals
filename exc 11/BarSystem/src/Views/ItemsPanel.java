@@ -130,7 +130,9 @@ public class ItemsPanel extends JPanel {
                         , JOptionPane.INFORMATION_MESSAGE);
 
             } else {
+
                 JFrameMain.products.clear();
+
             }
         }
     }

@@ -1,10 +1,12 @@
 package Views;
 
+import Models.Order;
 import Models.Product;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class BillPanel extends JPanel {
 
@@ -36,11 +38,16 @@ public class BillPanel extends JPanel {
 
     public Double getBill() {
         //Sums the total bill of all the items of one order
-        double totalSum = 0.0;//Holds the sum
-        for (Product product : JFrameMain.products) {
-            //Iterates trough the array of products
-            totalSum += product.getProductPrice();
-            //Sums every product's price
+        // TODO : FIX SHOW BILL FOR EACH TABLE
+        double totalSum = 0.0;
+        //Holds the sum
+        for (Order order : JFrameMain.orders) {
+            if (JFrameMain.currentOrder.getTableID().equals(JFrameMain.currentTableId)){
+                for (Product product : order.getProductArrayList()) {
+                    totalSum += product.getProductPrice();
+                }
+                break;
+            }
         }
         return totalSum;
     }
