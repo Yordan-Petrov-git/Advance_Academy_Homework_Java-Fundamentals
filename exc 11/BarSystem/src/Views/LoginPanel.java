@@ -59,9 +59,21 @@ public class LoginPanel extends JPanel {
                     System.out.println(JFrameMain.currentWaiter.toString());
                     jFrame.showMenuPanel();
                     break;
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null
+                            , "Invalid login credentials"
+                            , "Error"
+                            , JOptionPane.ERROR_MESSAGE);
                 }
             }
 
+        } else {
+            JOptionPane.showMessageDialog(
+                    null
+                    , "Invalid input"
+                    , "Error"
+                    , JOptionPane.ERROR_MESSAGE);
         }
 
     }
