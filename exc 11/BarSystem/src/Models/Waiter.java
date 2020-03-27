@@ -8,15 +8,15 @@ public class Waiter extends User {
 
     public Waiter(String userFullName, String waitressUsername, String waiterPassword) {
         super(userFullName);
-        setWaitressUsername(waitressUsername);
+        setWaiterUsername(waitressUsername);
         setWaiterPassword(waiterPassword);
     }
 
-    public String getWaitressUsername() {
+    public String getWaiterUsername() {
         return this.waiterUsername;
     }
 
-    public void setWaitressUsername(String waitressUsername) {
+    public void setWaiterUsername(String waitressUsername) {
         this.waiterUsername = waitressUsername;
     }
 

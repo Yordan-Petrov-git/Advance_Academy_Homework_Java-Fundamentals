@@ -1,13 +1,11 @@
 package Views;
 
 import Helpers.InitializeObjects;
-import Models.Product;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
-import java.util.stream.Stream;
+
 
 public class ItemsPanel extends JPanel {
 
@@ -67,26 +65,26 @@ public class ItemsPanel extends JPanel {
 
     private void createOrder() {
         //Finishes the order
-        InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products);
-        for (Product product : JFrameMain.products) {
-            System.out.print(product.toString());
+        int result =
+                JOptionPane.showConfirmDialog(
+                        null
+                        , "Products" + JFrameMain.products
+                                + "Will be added to "+ JFrameMain.currentTableId
+                        , "Finish order"
+                        , JOptionPane.YES_NO_OPTION);
+
+        if (result == JOptionPane.YES_OPTION) {
+            //yes option only !
+            InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products,JFrameMain.currentTableId,JFrameMain.currentWaiter);
+            jFrame.itemsPanel.setVisible(false);
+            remove(jFrame.itemsPanel);
+            jFrame.showLoginPanel();
+
         }
-       // System.out.println(JFrameMain.products.toString());
     }
 
     private void deleteOrder() {
         //Deletes the order
-        //Arrays.stream(JFrameMain.products.forEach(e -> remove(e)));
-
-        for (int i = 0; i < JFrameMain.products.size(); i++) {
-            JFrameMain.products.remove(i);
-        }
-
-        for (Product product : JFrameMain.products) {
-            System.out.print(product.toString());
-        }
-
-        //  JFrameMain.products.remove();
-        //System.out.println(JFrameMain.products.toString());
+        JFrameMain.products.clear();
     }
 }

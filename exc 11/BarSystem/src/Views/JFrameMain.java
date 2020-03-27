@@ -16,8 +16,9 @@ public class JFrameMain extends JFrame {
     public static ArrayList<Product> products = new ArrayList<>();
     public static ArrayList<Order> orders = new ArrayList<>();
     public static Waiter currentWaiter;
-   // public static String currentTable;
+    public static String currentTableId;
     public static Order currentOrder;
+
 
     public LoginPanel loginPanel;
     public MenuPanel menuPanel;
@@ -72,8 +73,8 @@ public class JFrameMain extends JFrame {
     }
 
     public void showBillPanel() {
-        itemsPanel.setVisible(false);
-        remove(itemsPanel);
+        tablesPanel.setVisible(false);
+        remove(tablesPanel);
 
         billPanel = new BillPanel(this);
         billPanel.setSize(getWidth(), getHeight());

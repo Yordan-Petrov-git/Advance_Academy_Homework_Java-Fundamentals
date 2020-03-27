@@ -34,6 +34,8 @@ public class TablesPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //Button for the selected table ID
                 String tableId = ((JButton) e.getSource()).getText();
+                //Gets current table id
+                JFrameMain.currentTableId = tableId;
                 //Gets the clicked button text
                 boolean isOrderFound = false;
                 //boolean for search state
