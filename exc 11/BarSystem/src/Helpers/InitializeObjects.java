@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class InitializeObjects {
 
-
     public static void initializeNewWaiter(String fullName, String username, String password) {
         //Method that initialise waiter object
         for (Waiter waiter : JFrameMain.waiter) {
@@ -31,7 +30,7 @@ public class InitializeObjects {
     }
 
     public static void initializeNewWProduct(String productName, String productQuantity, double productPrice) {
-
+          //
 //        for (Product product : JFrameMain.products ) {
 //
 //        }
@@ -40,13 +39,13 @@ public class InitializeObjects {
     }
 
     public static void initializeNewWOrder(String tableID, Waiter WaiterName) {
-
+        //
         Order order = new Order(tableID, WaiterName);
         JFrameMain.orders.add(order);
     }
 
     public static void initializeNewWOrderProductArrayList(ArrayList<Product> productArrayList) {
-
+        //
         Order order = new Order(productArrayList);
         JFrameMain.orders.add(order);
     }

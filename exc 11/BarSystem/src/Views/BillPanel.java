@@ -1,6 +1,5 @@
 package Views;
 
-import Models.Order;
 import Models.Product;
 
 import javax.swing.*;
@@ -12,17 +11,22 @@ public class BillPanel extends JPanel {
     public BillPanel(JFrameMain jFrame) {
         this.jFrame = jFrame;
         double bill = getBill();
-        jLabelShowBill = new JLabel("Your  waiter was: " + JFrameMain.currentWaiter.getUserFullName() + " The bill for " + JFrameMain.currentTable + "is total :" + String.valueOf(bill));
+        jLabelShowBill = new JLabel(
+                "Your  waiter was: " + JFrameMain.currentWaiter.getUserFullName()
+                        + " The bill for " + JFrameMain.currentTable
+                        + "is total :" + String.valueOf(bill));
         add(jLabelShowBill);
     }
 
     public Double getBill() {
-        double total = 0.0;
+        //Sums the total bill of all the items of one order
+        double totalSum = 0.0;//Holds the sum
         for (Product product : JFrameMain.products) {
-            total += product.getProductPrice();
+            //Iterates trough the array of products
+            totalSum += product.getProductPrice();
+            //Sums every product's price
         }
-        System.out.println(total);
-        return total;
+        return totalSum;
     }
 
 }
