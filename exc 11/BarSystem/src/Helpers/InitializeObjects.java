@@ -39,12 +39,13 @@ public class InitializeObjects {
         JFrameMain.products.add(product);
     }
 
-    public static void initializeNewWOrder( String tableID, Waiter WaiterName) {
+    public static void initializeNewWOrder(String tableID, Waiter WaiterName) {
 
-        Order order = new Order( tableID, WaiterName);
+        Order order = new Order(tableID, WaiterName);
         JFrameMain.orders.add(order);
     }
-    public static void initializeNewWOrderProductArrayList(ArrayList <Product> productArrayList) {
+
+    public static void initializeNewWOrderProductArrayList(ArrayList<Product> productArrayList) {
 
         Order order = new Order(productArrayList);
         JFrameMain.orders.add(order);

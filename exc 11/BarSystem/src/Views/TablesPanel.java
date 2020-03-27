@@ -4,14 +4,13 @@ import Helpers.InitializeObjects;
 import Models.Order;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 
 public class TablesPanel extends JPanel {
 
-    //private ArrayList<JButton> buttons;
+
     private JButton jButtonTable;
     public JFrameMain jFrame;
     public int clickedButton;
@@ -34,8 +33,6 @@ public class TablesPanel extends JPanel {
                 //
                 String tableId = ((JButton) e.getSource()).getText();
                 JFrameMain.currentTable = tableId;
-
-                // System.out.println(currentButton);
 
                 boolean isOrderFound = false;
                 for (Order order : JFrameMain.orders) {
@@ -62,17 +59,20 @@ public class TablesPanel extends JPanel {
         switch (clickedButton) {
             case 1:
                 System.out.println("New order");
-                JOptionPane.showMessageDialog(null, "Order for the selected table already exists", "Order exists", JOptionPane.INFORMATION_MESSAGE);
-                //new order 1 popup ima pora4ka ve4e
+                //New order option 1 popup ima pora4ka ve4e
+                JOptionPane.showMessageDialog(null
+                        , "Order for the selected table already exists"
+                        , "Order exists"
+                        , JOptionPane.INFORMATION_MESSAGE);
                 break;
             case 2:
-                // System.out.println("Add to existing order");
+
                 //exisitng 2 order minava na sledva6tiq ekran s prodiktite
                 jFrame.showItemsPanel();
                 break;
             case 3:
-                System.out.println("Show bill");
-                //get bill 3 mina va na ekrana bet bill i smqta smetnkata za dadena masa
+
+                //Get Bill option 3 mina va na ekrana bet bill i smqta smetnkata za dadena masa
                 jFrame.showBillPanel();
                 break;
             default:
@@ -83,19 +83,15 @@ public class TablesPanel extends JPanel {
     }
 
     public void orderNotFound(String tableId) {
-
-
-        System.out.println("No existing order");
+        //Method that activates if no
         switch (clickedButton) {
             case 1:
-                System.out.println("New order");
                 InitializeObjects.initializeNewWOrder(tableId, JFrameMain.currentWaiter);
-                //new order 1 sazdavame nova pora4ka i q dobavqme v masiva s pora4ki
+                //New order option 1 sazdavame nova pora4ka i q dobavqme v masiva s pora4ki
                 //minavame na sledva6tiq ekran
                 break;
             case 2:
-                System.out.println("Add to existing order");
-                //exisitng order 2 nqma pora4ka koqto da prodalji na tazi masa i da go popita mdali i ska da napravi nova pora4ka
+                //Existing order option 2 nqma pora4ka koqto da prodalji na tazi masa i da go popita mdali i ska da napravi nova pora4ka
                 int result = JOptionPane.showConfirmDialog(null, "No order for the current table." +
                         "Do you want to add new order ?", "No existing orders", JOptionPane.YES_NO_OPTION);
                 if (result == JOptionPane.YES_OPTION) {
@@ -106,9 +102,8 @@ public class TablesPanel extends JPanel {
 
                 break;
             case 3:
-                System.out.println("Show bill");
+                //Get Bill option 3 no orders present for this table and the bill cannot be shown
                 JOptionPane.showMessageDialog(null, "No existing order for the selected table", "Order not found", JOptionPane.INFORMATION_MESSAGE);
-                //get bill popup 3 nqma pora4ka na tazi masa i ne moje da se pokaje smetkata
 
                 break;
             default:

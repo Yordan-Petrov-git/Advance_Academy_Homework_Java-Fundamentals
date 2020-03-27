@@ -3,7 +3,6 @@ package Models;
 public class Waiter extends User {
 
 
-
     private String waiterUsername;
     private String waiterPassword;
 
