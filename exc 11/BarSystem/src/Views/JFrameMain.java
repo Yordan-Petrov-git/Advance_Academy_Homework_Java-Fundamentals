@@ -16,7 +16,7 @@ public class JFrameMain extends JFrame {
     public static ArrayList<Product> products = new ArrayList<>();
     public static ArrayList<Order> orders = new ArrayList<>();
     public static Waiter currentWaiter;
-    public static String currentTable;
+   // public static String currentTable;
     public static Order currentOrder;
 
     public LoginPanel loginPanel;

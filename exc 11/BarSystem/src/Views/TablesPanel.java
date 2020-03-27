@@ -32,7 +32,7 @@ public class TablesPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //
                 String tableId = ((JButton) e.getSource()).getText();
-                JFrameMain.currentTable = tableId;
+                //JFrameMain.currentTable = tableId;
 
                 boolean isOrderFound = false;
                 for (Order order : JFrameMain.orders) {
@@ -54,46 +54,66 @@ public class TablesPanel extends JPanel {
     }
 
     public void orderFound() {
-
+        //Method for when the order is found in the arrayList Orders
 
         switch (clickedButton) {
+            //Switching between the 3 buttons from the Menu
+            //1 -> new order
+            //2 -> add to existing order
+            //3 -> show bill
             case 1:
-                System.out.println("New order");
-                //New order option 1 popup ima pora4ka ve4e
+                //1 -> New order option : 1 order found : popup the order already exists
                 JOptionPane.showMessageDialog(null
                         , "Order for the selected table already exists"
                         , "Order exists"
                         , JOptionPane.INFORMATION_MESSAGE);
+
                 break;
+
             case 2:
-
-                //exisitng 2 order minava na sledva6tiq ekran s prodiktite
+                //2 ->Existing order option : order found : go to the panel with the items
                 jFrame.showItemsPanel();
-                break;
-            case 3:
 
-                //Get Bill option 3 mina va na ekrana bet bill i smqta smetnkata za dadena masa
-                jFrame.showBillPanel();
                 break;
+
+            case 3:
+                //3 -> Get Bill option : order found : go to get bill panel
+                jFrame.showBillPanel();
+
+                break;
+
             default:
+                //When no valid button is pressed
                 System.out.println("No valid menu option selected");
+
                 break;
 
         }
     }
 
     public void orderNotFound(String tableId) {
-        //Method that activates if no
+        //Method that activates if no order is found in the arrayList Orders
+
         switch (clickedButton) {
+            //Switching between the 3 buttons from the Menu
+            //1 -> new order
+            //2 -> add to existing order
+            //3 -> show bill
             case 1:
                 InitializeObjects.initializeNewWOrder(tableId, JFrameMain.currentWaiter);
-                //New order option 1 sazdavame nova pora4ka i q dobavqme v masiva s pora4ki
-                //minavame na sledva6tiq ekran
+                //1 -> New order option  :  order not found : sazdavame nova pora4ka i q dobavqme v masiva s pora4ki
+                //go to the next panel
                 break;
             case 2:
-                //Existing order option 2 nqma pora4ka koqto da prodalji na tazi masa i da go popita mdali i ska da napravi nova pora4ka
-                int result = JOptionPane.showConfirmDialog(null, "No order for the current table." +
-                        "Do you want to add new order ?", "No existing orders", JOptionPane.YES_NO_OPTION);
+                //2 -> Existing order option :  order not found : nqma pora4ka koqto da prodalji na tazi masa i da go popita mdali i ska da napravi nova pora4ka
+                int result =
+                        JOptionPane.showConfirmDialog(
+                                null
+                                , "No order for the current table."
+                                        + "Do you want to add new order ?"
+                                , "No existing orders"
+                                , JOptionPane.YES_NO_OPTION);
+
                 if (result == JOptionPane.YES_OPTION) {
                     //Add new order
                     InitializeObjects.initializeNewWOrder(tableId, JFrameMain.currentWaiter);
@@ -102,14 +122,20 @@ public class TablesPanel extends JPanel {
 
                 break;
             case 3:
-                //Get Bill option 3 no orders present for this table and the bill cannot be shown
-                JOptionPane.showMessageDialog(null, "No existing order for the selected table", "Order not found", JOptionPane.INFORMATION_MESSAGE);
+                //3 -> Get Bill option :  order not found : no orders present for this table and the bill cannot be shown
+                JOptionPane.showMessageDialog(
+                        null
+                        , "No existing order for the selected table"
+                        , "Order not found"
+                        , JOptionPane.INFORMATION_MESSAGE);
 
                 break;
+
             default:
+                //When no valid button is pressed
                 System.out.println("No valid menu option selected");
-                break;
 
+                break;
         }
     }
 }
