@@ -3,6 +3,7 @@ package Models;
 import java.util.ArrayList;
 
 public class Order {
+
     private ArrayList<Product> productArrayList;
     private String tableID;
     private String WaiterUsername;

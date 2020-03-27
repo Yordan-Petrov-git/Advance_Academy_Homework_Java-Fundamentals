@@ -4,7 +4,6 @@ import Helpers.Validators;
 import Models.Waiter;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -54,11 +53,12 @@ public class LoginPanel extends JPanel {
         if (Validators.validatePassword(password) && Validators.validateUserName(username)) {
             System.out.println("valid input");
             for (Waiter waiter : JFrameMain.waiter) {
-                if (username.equals(waiter.getWaitressUsername()) && password.equals(waiter.getWaitressPassword())) {
+                if (username.equals(waiter.getWaitressUsername()) && password.equals(waiter.getWaiterPassword())) {
                     System.out.println("logged in as " + waiter.getWaitressUsername());
                     JFrameMain.currentWaiter = waiter;
                     System.out.println(JFrameMain.currentWaiter.toString());
                     jFrame.showMenuPanel();
+                    break;
                 }
             }
 

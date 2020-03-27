@@ -13,12 +13,13 @@ public class Main {
 //        Product product = new Product("Wiskey", "50ml", 6.00);
 //        JFrameMain.waiter.add(waiter);
 //        JFrameMain.products.add(product);
-
+        Waiter a = new Waiter("Ivan Ivanov","Ivan","1234");
+        JFrameMain.waiter.add(a);
         String fullName = "Ivan Ivanov";
         String username = "Ivan";
         String password="1234";
         InitializeObjects.initializeNewWaiter(fullName,username,password);
-
+       // InitializeObjects.initializeNewWaiter("Ivan Ivanov","Ivan","1234");
 
         //sTART
         JFrameMain jFrame =  new JFrameMain();

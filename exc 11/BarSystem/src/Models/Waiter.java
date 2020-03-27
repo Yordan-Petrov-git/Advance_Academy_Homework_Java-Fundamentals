@@ -4,37 +4,37 @@ public class Waiter extends User {
 
 
 
-    private String waitressUsername;
-    private String waitressPassword;
+    private String waiterUsername;
+    private String waiterPassword;
 
-    public Waiter(String userFullName, String waitressUsername, String waitressPassword) {
+    public Waiter(String userFullName, String waitressUsername, String waiterPassword) {
         super(userFullName);
         setWaitressUsername(waitressUsername);
-        setWaitressPassword(waitressPassword);
+        setWaiterPassword(waiterPassword);
     }
 
     public String getWaitressUsername() {
-        return this.waitressUsername;
+        return this.waiterUsername;
     }
 
     public void setWaitressUsername(String waitressUsername) {
-        this.waitressUsername = waitressUsername;
+        this.waiterUsername = waitressUsername;
     }
 
-    public String getWaitressPassword() {
-        return this.waitressPassword;
+    public String getWaiterPassword() {
+        return this.waiterPassword;
     }
 
-    public void setWaitressPassword(String waitressPassword) {
-        this.waitressPassword = waitressPassword;
+    public void setWaiterPassword(String waiterPassword) {
+        this.waiterPassword = waiterPassword;
     }
 
 
     @Override
     public String toString() {
         return "Waiter{" +
-                "waitressUsername='" + waitressUsername + '\'' +
-                ", waitressPassword='" + waitressPassword + '\'' +
+                "waiterUsername='" + waiterUsername + '\'' +
+                ", waiterPassword='" + waiterPassword + '\'' +
                 '}';
     }
 
