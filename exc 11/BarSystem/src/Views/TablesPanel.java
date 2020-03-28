@@ -57,7 +57,7 @@ public class TablesPanel extends JPanel {
                     //Iterates through the arrayList containing orders
                     if (order.getTableID().equals(tableId)) {
                         //If the order is for the current table
-                        JFrameMain.currentOrder = order;
+                        //JFrameMain.currentOrder = order;
                         //Saves the selected order for later use
                         isOrderFound = true;
                         //If order is found

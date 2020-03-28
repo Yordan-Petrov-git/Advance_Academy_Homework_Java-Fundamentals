@@ -6,7 +6,6 @@ import Models.Product;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class BillPanel extends JPanel {
 
@@ -18,8 +17,8 @@ public class BillPanel extends JPanel {
         this.jFrame = jFrame;
         double bill = getBill();
         String message = "Your  waiter was: " + JFrameMain.currentWaiter.getUserFullName()
-                + " The bill for " + JFrameMain.currentOrder.getTableID()
-                + " is total :" + String.valueOf(bill);
+                + " The bill for " + JFrameMain.currentTableId
+                + " is total :" + bill + "BGN";
         jLabelShowBill = new JLabel(message);
         add(jLabelShowBill);
 
@@ -42,7 +41,7 @@ public class BillPanel extends JPanel {
         double totalSum = 0.0;
         //Holds the sum
         for (Order order : JFrameMain.orders) {
-            if (JFrameMain.currentOrder.getTableID().equals(JFrameMain.currentTableId)){
+            if (order.getTableID().equals(JFrameMain.currentTableId)) {
                 for (Product product : order.getProductArrayList()) {
                     totalSum += product.getProductPrice();
                 }

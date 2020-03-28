@@ -16,7 +16,7 @@ public class ItemsPanel extends JPanel {
 
     public ItemsPanel(JFrameMain jFrame) {
         this.jFrame = jFrame;
-
+        //Adding some buttons to the panel Items
         add(buttonItem("Whiskey 50ml", "50 ml", 7.00));
         add(buttonItem("Whiskey 100ml", "100 ml", 10.00));
         add(buttonItem("Whiskey 200ml", "200 ml", 15.00));
@@ -65,12 +65,11 @@ public class ItemsPanel extends JPanel {
 
     private void createOrder() {
         //Finishes the order
-
+        //String with products toString method
         String products =
                 JFrameMain.products.toString()
                         .replace("[", "")
                         .replace("]", "");
-        //remove brackets([) convert it to string
 
         int result =
                 JOptionPane.showConfirmDialog(
@@ -84,31 +83,35 @@ public class ItemsPanel extends JPanel {
             //yes option only !
 
             if (JFrameMain.products.isEmpty()) {
-
+                //If there are no products added popup
                 JOptionPane.showMessageDialog(
                         null
                         , "Please select at lest one item"
                         , "No products"
                         , JOptionPane.INFORMATION_MESSAGE);
             } else {
+                //Finalize new order
                 InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products, JFrameMain.currentTableId, JFrameMain.currentWaiter);
+
                 jFrame.itemsPanel.setVisible(false);
                 remove(jFrame.itemsPanel);
                 jFrame.showLoginPanel();
-            }
 
+                //After order initialization deletes product list
+                //JFrameMain.products.clear();
+
+            }
         }
+
     }
 
     private void deleteOrder() {
         //Deletes the order
-
         String products =
                 JFrameMain.products.toString()
                         .replace("[", "")
                         .replace("]", "");
-        //remove brackets([) convert it to string
-
+        //Yes no popup for deletion
         int result =
                 JOptionPane.showConfirmDialog(
                         null
@@ -117,12 +120,11 @@ public class ItemsPanel extends JPanel {
                         , "Delete order"
                         , JOptionPane.YES_NO_OPTION);
 
-
         if (result == JOptionPane.YES_OPTION) {
             //yes option only !
 
             if (JFrameMain.products.isEmpty()) {
-
+                //Popup if product array is empty
                 JOptionPane.showMessageDialog(
                         null
                         , "Please select at lest one item"
@@ -130,9 +132,8 @@ public class ItemsPanel extends JPanel {
                         , JOptionPane.INFORMATION_MESSAGE);
 
             } else {
-
+                //Delete all elements form the array with products
                 JFrameMain.products.clear();
-
             }
         }
     }

@@ -11,40 +11,42 @@ public class InitializeObjects {
 
     public static void initializeNewWaiter(String fullName, String username, String password) {
         //Method that initialise waiter object
-        for (Waiter w : JFrameMain.waiter) {
-            //iterates trough array of waiters
-            if (username.equals(w.getWaiterUsername())) {
-                //if the new waiters's username already exists in the waiter array it does not create new object
-                //username's must be unique
-                //shows test message
-                System.out.println("Username already exists");
-                //stops
-                break;
-            } else if (!username.equals(w.getWaiterUsername())) {
-                //initialise new waiter if username is not present in the array
-                Waiter waiter = new Waiter(fullName, username, password);
-                //adds the new waiter to the array
-                JFrameMain.waiter.add(waiter);
-            }
-        }
+        //TODO : ONLY FOR TESTING PURPOSES IF USER NAMES ARE UNIQUE !!!
+//        for (Waiter w : JFrameMain.waiter) {
+//            //iterates trough array of waiters
+//            if (username.equals(w.getWaiterUsername())) {
+//                //if the new waiters's username already exists in the waiter array it does not create new object
+//                //username's must be unique
+//                //shows test message
+//                System.out.println("Username already exists");
+//                //stops
+//                break;
+//            } else if (!username.equals(w.getWaiterUsername())) {
+//                //initialise new waiter if username is not present in the array
+//                Waiter waiter = new Waiter(fullName, username, password);
+//                //adds the new waiter to the array
+//                JFrameMain.waiter.add(waiter);
+//            }
+//        }
+        Waiter waiter = new Waiter(fullName, username, password);
+        //adds the new waiter to the array
+        JFrameMain.waiter.add(waiter);
     }
 
     public static void initializeNewWProduct(String productName, String productQuantity, double productPrice) {
-        //
-//        for (Product product : JFrameMain.products ) {
-//
-//        }
+        //Initialize nw
         Product product = new Product(productName, productQuantity, productPrice);
         JFrameMain.products.add(product);
     }
 
     public static Order initializeNewWOrder(String tableID, Waiter WaiterName) {
-        //
+        //Initializes new order with table id and waiter name
+        //Only those 2 values for the new order are present here
         return new Order(tableID, WaiterName);
     }
 
     public static void initializeNewWOrderProductArrayList(ArrayList<Product> productArrayList, String tableID, Waiter WaiterName) {
-        //
+        //adds the list with products the order it to array of orders
         Order order = initializeNewWOrder(tableID, WaiterName);
         order.setProductArrayList(productArrayList);
         JFrameMain.orders.add(order);

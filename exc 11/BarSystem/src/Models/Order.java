@@ -1,5 +1,7 @@
 package Models;
 
+import Views.JFrameMain;
+
 import java.util.ArrayList;
 
 public class Order {
@@ -46,6 +48,8 @@ public class Order {
     public void setWaiter(Waiter waiterCurrent) {
         WaiterCurrent = waiterCurrent;
     }
+
+
 
 
 }
