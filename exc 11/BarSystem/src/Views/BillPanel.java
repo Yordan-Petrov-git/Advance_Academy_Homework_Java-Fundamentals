@@ -43,7 +43,6 @@ public class BillPanel extends JPanel {
 
     public Double getBill() {
         //Sums the total bill of all the items of one order
-        // TODO : FIX SHOW BILL FOR EACH TABLE
         double totalSum = 0.0;
         //Holds the sum
         for (Order order : JFrameMain.orders) {

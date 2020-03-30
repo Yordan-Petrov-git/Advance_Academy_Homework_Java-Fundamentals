@@ -11,7 +11,6 @@ public class InitializeObjects {
 
     public static void initializeNewWaiter(String fullName, String username, String password) {
         //Method that initialise waiter object
-        //TODO : ONLY FOR TESTING PURPOSES IF USER NAMES ARE UNIQUE !!!
         boolean isFound = false;
         for (Waiter w : JFrameMain.waiter) {
             //iterates trough array of waiters
