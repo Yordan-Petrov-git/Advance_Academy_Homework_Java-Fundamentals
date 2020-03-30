@@ -12,22 +12,17 @@ public class InitializeObjects {
     public static void initializeNewWaiter(String fullName, String username, String password) {
         //Method that initialise waiter object
         //TODO : ONLY FOR TESTING PURPOSES IF USER NAMES ARE UNIQUE !!!
-//        for (Waiter w : JFrameMain.waiter) {
-//            //iterates trough array of waiters
-//            if (username.equals(w.getWaiterUsername())) {
-//                //if the new waiters's username already exists in the waiter array it does not create new object
-//                //username's must be unique
-//                //shows test message
-//                System.out.println("Username already exists");
-//                //stops
-//                break;
-//            } else if (!username.equals(w.getWaiterUsername())) {
-//                //initialise new waiter if username is not present in the array
-//                Waiter waiter = new Waiter(fullName, username, password);
-//                //adds the new waiter to the array
-//                JFrameMain.waiter.add(waiter);
-//            }
-//        }
+        for (Waiter w : JFrameMain.waiter) {
+            //iterates trough array of waiters
+            if (username.equals(w.getWaiterUsername())) {
+                //if the new waiters's username already exists in the waiter array it does not create new object
+                //username's must be unique
+                //shows test message
+                System.out.println("Username already exists");
+                //stops
+                break;
+            }
+        }
         Waiter waiter = new Waiter(fullName, username, password);
         //adds the new waiter to the array
         JFrameMain.waiter.add(waiter);
