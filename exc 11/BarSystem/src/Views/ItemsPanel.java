@@ -101,6 +101,11 @@ public class ItemsPanel extends JPanel {
                 JFrameMain.products.clear();
 
             }
+
+        }
+
+        if (result == JOptionPane.NO_OPTION || result == JOptionPane.CLOSED_OPTION) {
+            JFrameMain.products.clear();
         }
 
     }
