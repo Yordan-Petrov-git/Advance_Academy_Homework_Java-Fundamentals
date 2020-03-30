@@ -12,6 +12,7 @@ public class InitializeObjects {
     public static void initializeNewWaiter(String fullName, String username, String password) {
         //Method that initialise waiter object
         //TODO : ONLY FOR TESTING PURPOSES IF USER NAMES ARE UNIQUE !!!
+        boolean isFound = false;
         for (Waiter w : JFrameMain.waiter) {
             //iterates trough array of waiters
             if (username.equals(w.getWaiterUsername())) {
@@ -20,12 +21,15 @@ public class InitializeObjects {
                 //shows test message
                 System.out.println("Username already exists");
                 //stops
+                isFound = true;
                 break;
             }
         }
-        Waiter waiter = new Waiter(fullName, username, password);
-        //adds the new waiter to the array
-        JFrameMain.waiter.add(waiter);
+        if (!isFound){
+            Waiter waiter = new Waiter(fullName, username, password);
+            //adds the new waiter to the array
+            JFrameMain.waiter.add(waiter);
+        }
     }
 
     public static void initializeNewWProduct(String productName, String productQuantity, double productPrice) {
