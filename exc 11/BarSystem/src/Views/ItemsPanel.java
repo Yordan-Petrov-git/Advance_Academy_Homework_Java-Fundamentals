@@ -100,6 +100,10 @@ public class ItemsPanel extends JPanel {
                 //After order initialization deletes product list
                 //JFrameMain.products.clear();
 
+                //Sets current order to empty
+                JFrameMain.currentOrder = null;
+
+
             }
         }
 

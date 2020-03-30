@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Order {
 
-    private ArrayList<Product> productArrayList;
+    private ArrayList<Product> productArrayList = new ArrayList<>();
     private String tableID;
     private Waiter WaiterCurrent;
 

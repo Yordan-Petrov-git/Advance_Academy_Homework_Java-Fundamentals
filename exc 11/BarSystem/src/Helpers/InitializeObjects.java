@@ -47,7 +47,7 @@ public class InitializeObjects {
     public static void initializeNewWOrderProductArrayList(ArrayList<Product> productArrayList, String tableID, Waiter WaiterName) {
         //adds the list with products the order it to array of orders
         Order order = initializeNewWOrder(tableID, WaiterName);
-        order.setProductArrayList(productArrayList);
+        order.setProductArrayList(new ArrayList<>(productArrayList));
         JFrameMain.orders.add(order);
     }
 }
