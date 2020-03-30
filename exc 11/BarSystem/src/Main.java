@@ -1,5 +1,5 @@
 import Helpers.InitializeObjects;
-import Views.JFrameMain;
+import Controller.JFrameMain;
 
 public class Main {
     public static void main(String[] args) {

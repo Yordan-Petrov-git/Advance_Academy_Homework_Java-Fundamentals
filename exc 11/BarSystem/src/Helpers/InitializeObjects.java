@@ -3,7 +3,7 @@ package Helpers;
 import Models.Order;
 import Models.Product;
 import Models.Waiter;
-import Views.JFrameMain;
+import Controller.JFrameMain;
 
 import java.util.ArrayList;
 

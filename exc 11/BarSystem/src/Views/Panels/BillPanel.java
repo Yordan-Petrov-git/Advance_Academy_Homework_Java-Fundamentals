@@ -1,5 +1,6 @@
-package Views;
+package Views.Panels;
 
+import Controller.JFrameMain;
 import Models.Order;
 import Models.Product;
 

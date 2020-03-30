@@ -1,5 +1,6 @@
-package Views;
+package Views.Panels;
 
+import Controller.JFrameMain;
 import Helpers.Validators;
 import Models.Waiter;
 

@@ -1,8 +1,9 @@
-package Views;
+package Controller;
 
 import Models.Order;
 import Models.Product;
 import Models.Waiter;
+import Views.Panels.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +16,6 @@ public class JFrameMain extends JFrame {
     public static ArrayList<Order> orders = new ArrayList<>();
     public static Waiter currentWaiter;
     public static String currentTableId;
-    public static Order currentOrder;
 
     public LoginPanel loginPanel;
     public MenuPanel menuPanel;

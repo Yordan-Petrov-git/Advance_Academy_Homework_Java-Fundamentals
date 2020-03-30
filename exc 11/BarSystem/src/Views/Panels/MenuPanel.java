@@ -1,4 +1,6 @@
-package Views;
+package Views.Panels;
+
+import Controller.JFrameMain;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

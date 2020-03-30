@@ -1,5 +1,6 @@
-package Views;
+package Views.Panels;
 
+import Controller.JFrameMain;
 import Helpers.InitializeObjects;
 import Models.Order;
 
@@ -57,8 +58,6 @@ public class TablesPanel extends JPanel {
                     //Iterates through the arrayList containing orders
                     if (order.getTableID().equals(tableId)) {
                         //If the order is for the current table
-                        JFrameMain.currentOrder = order;
-                        //Saves the selected order for later use
                         isOrderFound = true;
                         //If order is found
                         orderFound();
@@ -94,19 +93,21 @@ public class TablesPanel extends JPanel {
 
             case 2:
                 //2 -> Existing order option : order found : go to the panel with the items
-                //:TODO ADD resetExistingOrderProductArrayList();
+
                 jFrame.showItemsPanel();
 
                 break;
 
             case 3:
                 //3 -> Get Bill option : order found : go to get bill panel
+
                 jFrame.showBillPanel();
 
                 break;
 
             default:
                 //When no valid button is pressed
+
                 System.out.println("No valid menu option selected");
 
                 break;
