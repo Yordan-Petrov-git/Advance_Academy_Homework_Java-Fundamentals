@@ -66,18 +66,13 @@ public class ItemsPanel extends JPanel {
     private void createOrder() {
         //Finishes the order
         //String with products toString method
-//        if (TablesPanel.clickedButton == 2) {
-//
-//            System.out.println("Exisitng");
-//
-//            InitializeObjects.resetExistingOrderProductArrayList();
-//
-//            jFrame.itemsPanel.setVisible(false);
-//            remove(jFrame.itemsPanel);
-//            jFrame.showLoginPanel();
-//
-//            //JFrameMain.products.clear();
-//        }
+
+        if (TablesPanel.clickedButton == 2 && !JFrameMain.products.isEmpty()) {
+
+            InitializeObjects.resetExistingOrderProductArrayList();
+
+        }
+
 
         String products =
                 JFrameMain.products.toString()
@@ -102,7 +97,21 @@ public class ItemsPanel extends JPanel {
                         , "Please select at lest one item"
                         , "No products"
                         , JOptionPane.INFORMATION_MESSAGE);
-            } else if (TablesPanel.clickedButton == 1 ) {
+
+            } else if (TablesPanel.clickedButton == 2){
+
+                //Finalize new order
+                InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products, JFrameMain.currentTableId, JFrameMain.currentWaiter);
+
+                jFrame.itemsPanel.setVisible(false);
+                remove(jFrame.itemsPanel);
+                jFrame.showLoginPanel();
+
+                //After order initialization deletes product list
+                JFrameMain.products.clear();
+
+
+            } else {
                 //Finalize new order
                 InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products, JFrameMain.currentTableId, JFrameMain.currentWaiter);
 
@@ -114,18 +123,9 @@ public class ItemsPanel extends JPanel {
                 JFrameMain.products.clear();
 
             }
-            else if (TablesPanel.clickedButton == 2){
 
-                InitializeObjects.resetExistingOrderProductArrayList();
-
-                jFrame.itemsPanel.setVisible(false);
-                remove(jFrame.itemsPanel);
-                jFrame.showLoginPanel();
-            }
-
-        }
-
-        if (result == JOptionPane.NO_OPTION || result == JOptionPane.CLOSED_OPTION) {
+        } else if (result == JOptionPane.NO_OPTION || result == JOptionPane.CLOSED_OPTION) {
+            //If the popup is closed without Yes option clears the list with Products
             JFrameMain.products.clear();
         }
 
