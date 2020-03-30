@@ -67,8 +67,9 @@ public class ItemsPanel extends JPanel {
         //Finishes the order
         //String with products toString method
 
-        if (TablesPanel.clickedButton == 2 && !JFrameMain.products.isEmpty()) {
 
+        if (TablesPanel.clickedButton == 2 && !JFrameMain.products.isEmpty()) {
+            //For the case if add to existing order is selected but no order is present
             InitializeObjects.resetExistingOrderProductArrayList();
 
         }
@@ -98,7 +99,7 @@ public class ItemsPanel extends JPanel {
                         , "No products"
                         , JOptionPane.INFORMATION_MESSAGE);
 
-            } else if (TablesPanel.clickedButton == 2){
+            } else if (TablesPanel.clickedButton == 2) {
 
                 //Finalize new order
                 InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products, JFrameMain.currentTableId, JFrameMain.currentWaiter);
