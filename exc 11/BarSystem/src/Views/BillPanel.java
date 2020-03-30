@@ -6,6 +6,7 @@ import Models.Product;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class BillPanel extends JPanel {
 
@@ -16,7 +17,12 @@ public class BillPanel extends JPanel {
     public BillPanel(JFrameMain jFrame) {
         this.jFrame = jFrame;
         double bill = getBill();
-        String message = "Your  waiter was: " + JFrameMain.currentWaiter.getUserFullName()
+        ArrayList<Product> arrayListOfCurrentTableProducts = getAllItems();
+        String products =
+                arrayListOfCurrentTableProducts.toString()
+                        .replace("[", "")
+                        .replace("]", "");
+        String message = products + " " + "Your  waiter was: " + JFrameMain.currentWaiter.getUserFullName()
                 + " The bill for " + JFrameMain.currentTableId
                 + " is total :" + bill + "BGN";
         jLabelShowBill = new JLabel(message);
@@ -50,5 +56,21 @@ public class BillPanel extends JPanel {
         }
         return totalSum;
     }
+
+
+    public ArrayList<Product> getAllItems() {
+        //Gets and returns the array of items for the Current table ID order
+        ArrayList<Product> productArrayList = new ArrayList<>();
+        for (Order order : JFrameMain.orders) {
+            if (order.getTableID().equals(JFrameMain.currentTableId)) {
+
+                productArrayList = order.getProductArrayList();
+
+                break;
+            }
+        }
+        return productArrayList;
+    }
+
 
 }
