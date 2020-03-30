@@ -66,9 +66,12 @@ public class InitializeObjects {
                 arrayList.addAll(JFrameMain.products);
 
                 order.setProductArrayList(arrayList);
+
+
                 break;
             }
         }
+
     }
 
 }
