@@ -98,11 +98,7 @@ public class ItemsPanel extends JPanel {
                 jFrame.showLoginPanel();
 
                 //After order initialization deletes product list
-                //JFrameMain.products.clear();
-
-                //Sets current order to empty
-                JFrameMain.currentOrder = null;
-
+                JFrameMain.products.clear();
 
             }
         }
