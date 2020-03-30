@@ -12,7 +12,7 @@ public class TablesPanel extends JPanel {
     private JButton jButtonBack;
     private JButton jButtonTable;
     public JFrameMain jFrame;
-    public int clickedButton;
+    public static int clickedButton;
 
     public TablesPanel(JFrameMain jFrame) {
         this.jFrame = jFrame;
@@ -94,6 +94,7 @@ public class TablesPanel extends JPanel {
 
             case 2:
                 //2 -> Existing order option : order found : go to the panel with the items
+                //:TODO ADD resetExistingOrderProductArrayList();
                 jFrame.showItemsPanel();
 
                 break;

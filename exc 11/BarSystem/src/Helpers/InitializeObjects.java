@@ -25,7 +25,7 @@ public class InitializeObjects {
                 break;
             }
         }
-        if (!isFound){
+        if (!isFound) {
             Waiter waiter = new Waiter(fullName, username, password);
             //adds the new waiter to the array
             JFrameMain.waiter.add(waiter);
@@ -50,4 +50,25 @@ public class InitializeObjects {
         order.setProductArrayList(new ArrayList<>(productArrayList));
         JFrameMain.orders.add(order);
     }
+
+    public static void resetExistingOrderProductArrayList() {
+        //adds the list with products the order it to array of orders
+        //Gets the existing order for the current table
+
+        ArrayList<Product> arrayList;
+
+        for (Order order : JFrameMain.orders) {
+
+            if (order.getTableID().equals(JFrameMain.currentTableId)) {
+
+                arrayList = order.getProductArrayList();
+
+                arrayList.addAll(JFrameMain.products);
+
+                order.setProductArrayList(arrayList);
+                break;
+            }
+        }
+    }
+
 }

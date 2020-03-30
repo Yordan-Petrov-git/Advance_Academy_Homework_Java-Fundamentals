@@ -66,6 +66,19 @@ public class ItemsPanel extends JPanel {
     private void createOrder() {
         //Finishes the order
         //String with products toString method
+        if (TablesPanel.clickedButton == 2) {
+
+            System.out.println("Exisitng");
+
+            InitializeObjects.resetExistingOrderProductArrayList();
+
+            jFrame.itemsPanel.setVisible(false);
+            remove(jFrame.itemsPanel);
+            jFrame.showLoginPanel();
+
+            //JFrameMain.products.clear();
+        }
+
         String products =
                 JFrameMain.products.toString()
                         .replace("[", "")
@@ -89,7 +102,7 @@ public class ItemsPanel extends JPanel {
                         , "Please select at lest one item"
                         , "No products"
                         , JOptionPane.INFORMATION_MESSAGE);
-            } else {
+            } else if (TablesPanel.clickedButton == 1) {
                 //Finalize new order
                 InitializeObjects.initializeNewWOrderProductArrayList(JFrameMain.products, JFrameMain.currentTableId, JFrameMain.currentWaiter);
 
@@ -101,6 +114,9 @@ public class ItemsPanel extends JPanel {
                 JFrameMain.products.clear();
 
             }
+//            else {
+//                InitializeObjects.resetExistingOrderProductArrayList();
+//            }
 
         }
 
