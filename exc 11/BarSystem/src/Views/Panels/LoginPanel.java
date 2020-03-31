@@ -47,12 +47,10 @@ public class LoginPanel extends JPanel {
         //Method that shows menu jPanel to chose an action : make new order , add to ex
 
         if (Validators.validatePassword(password) && Validators.validateUserName(username)) {
-            System.out.println("valid input");
+
             for (Waiter waiter : JFrameMain.waiter) {
                 if (username.equals(waiter.getWaiterUsername()) && password.equals(waiter.getWaiterPassword())) {
-                    System.out.println("logged in as " + waiter.getWaiterUsername());
                     JFrameMain.currentWaiter = waiter;
-                    System.out.println(JFrameMain.currentWaiter.toString());
                     jFrame.showMenuPanel();
                     break;
                 } else {

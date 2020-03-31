@@ -1,6 +1,7 @@
 package Views.Panels;
 
 import Controller.JFrameMain;
+import Helpers.MenuState;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -54,16 +55,16 @@ public class MenuPanel extends JPanel {
 
     public void addNewOrder() {
         //Option 1
-        jFrame.showTablesPanel(1);
+        jFrame.showTablesPanel(MenuState.OPTION_ADD_NEW_ORDER.getValue());
     }
 
     public void addToExistingOrder() {
         //Option 2
-        jFrame.showTablesPanel(2);
+        jFrame.showTablesPanel(MenuState.OPTION_ADD_TO_EXISTING_ORDER.getValue());
     }
 
     public void showBill() {
         //Option 3
-        jFrame.showTablesPanel(3);
+        jFrame.showTablesPanel(MenuState.OPTION_SHOW_BILL_FOR_CURRENT_TABLE.getValue());
     }
 }
