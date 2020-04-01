@@ -154,6 +154,7 @@ public class TablesPanel extends JPanel {
                         , "Order not found"
                         , JOptionPane.INFORMATION_MESSAGE);
 
+                 //Adds back button to the panel
                 add(jButtonBack);
 
                 break;
