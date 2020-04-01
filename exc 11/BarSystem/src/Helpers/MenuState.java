@@ -16,7 +16,7 @@ public enum MenuState {
     OPTION_ADD_TO_EXISTING_ORDER(2),
     OPTION_SHOW_BILL_FOR_CURRENT_TABLE(3);
 
-    private int value;
+    private final int value;
 
     MenuState(int value) {
         this.value = value;
@@ -26,9 +26,5 @@ public enum MenuState {
         return this.value;
     }
 
-    @Override
-    public String toString() {
-        return Integer.toString(value);
-    }
 
 }
